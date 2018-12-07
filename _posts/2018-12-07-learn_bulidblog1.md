@@ -3,6 +3,7 @@ layout: post
 title: 学习搭建Blog On Github
 date: 2018-12-07
 categories: blog
+description: 如何搭建Blog.
 ---
 
 #### 在Github上新建一个Repository
