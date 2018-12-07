@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-description: {{ site.description }}
+description: { site.description }
 header-img: "img/green.jpg"
 ---
 
