@@ -3,6 +3,7 @@ layout: post
 title: 学习搭建Blog On Github
 date: 2018-12-07
 categories: blog
+tags: [技巧,Blog]
 description: 如何搭建Blog.
 ---
 
