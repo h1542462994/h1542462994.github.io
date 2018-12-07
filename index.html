@@ -1,12 +1,12 @@
 ---
 layout: page
-description: "陈昊天"
+description: "一位C#工程师的随笔和技术分享"
 ---
 
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">            
+        <h2 class="post-title">
             {{ post.title }}
         </h2>
         {% if post.subtitle %}
@@ -20,7 +20,6 @@ description: "陈昊天"
     </a>
     <p class="post-meta">Posted on {{ post.date | date: "%Y-%m-%d" }}</p>
 </div>
-
 <hr>
 {% endfor %}
 

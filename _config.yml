@@ -1,8 +1,8 @@
 ﻿# Site settings
-title: Peppermint #在这里写入标题
-header-img: "img/green.jpg"
+title: "peppermint2018" #在这里写入标题
+header-img: "img/zhihu.jpg"
 tagline: "cn"  
-description: "这是我的博客"  #用一句话描述博客
+description: "一位C#工程师的随笔和技术分享"  #用一句话描述博客
 baseurl: ""
 url: "http://h1542462994.github.io"  #此处填写你的博客地址 
 
@@ -10,7 +10,7 @@ url: "http://h1542462994.github.io"  #此处填写你的博客地址
 owner: 
   name: "陈昊天" # 填写作者信息：名字
   email: t1542462994@outlook.com # 填写作者信息：邮箱
-  bio: "这是一位大学生写的博客，用于分享编程知识" # 填写作者信息：博客描述
+  bio: "你所看见和感受到的，你所喜爱和理解的，全是你正穿越的风景。 ——里尔克" # 填写作者信息：博客描述
 
 # Data
 gavatar: img/favicon.png # 浏览器地址栏小图标，可自定义更改
@@ -43,7 +43,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Peppermint" # 你的名字
+      author: "peppermint2018" # 你的名字
       header-img: "img/green.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
