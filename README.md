@@ -1,42 +1,23 @@
 ## 说明
 
-此博客 fork 自 [Azeril](http://azeril.me/)，感谢。
+此博客模板 Fork 自仓库：[cnfeat/blog.io: 简单直接可用博客模板](https://github.com/cnfeat/blog.io)
 
-## 读立写生
+配套说用说明：[如何搭建一个独立博客——简明 GitHub Pages与 jekyll 教程 - 读立写生](http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/)
 
-我是陈素封，博客：[cnfeat.com](cnfeat.com)
+## 博客模板修订清单
 
-每天千字践行者，践行时间：2014年02月10日至2014年02月23日，感谢这段经历，让我成为了现在的我。
+文档内有详细注释，可按注释逐个修订
 
-现在研习 **认知写作学** 。
+* 博客名字、作者信息、浏览器小图标等：_config.yml 
+* 个人介绍页面：about.md
+* 代表作页面：milestone.md
+* 文章模板：blog.io/_posts/2015-03-02-how-to-write.md 
+* 
 
-## 坚信
+## 模板作者
 
+陈素封，博客：独立写生：[cnfeat.com](cnfeat.com)
 
-- 元认知乃一切之源
-- 学苟知本，六经皆我注脚 
-- 一切技能皆可习得，包括写作
-- 「持续」并不是坚持，写就是最好的回报
-
-
-### Changelog
-
-
-
-
-- 20160719 
-	+ 改动网页文字宽度
-		+ post.html 39
-		+ col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 post-container
-	+ about 链接颜色
-
-- 20160717 博客优化
-	- 增加 Google Analytics
-	* 修订 Gavatar 地址
-	* 增加作品集 works
-	* 缩短首页摘要为 70 字
-	* 多说替换成 disqus
-	* 置换字体
-
+联系方式：cnfeat@gmail.com
 
 
