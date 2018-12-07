@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Archive"
-description: "文章归档"
+description: "你看到的，是我笨方法练习写作的所有文章"
 header-img: "img/orange.jpg"
 ---
 
