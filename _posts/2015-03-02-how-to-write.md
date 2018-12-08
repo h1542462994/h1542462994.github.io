@@ -7,4 +7,8 @@ tags: [例子]
 description: 文章金句。
 ---
 
+{% autoescape off %}
+
 这里是博客正文。
+
+{% endautoescape %}
