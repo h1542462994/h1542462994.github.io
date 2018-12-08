@@ -62,8 +62,6 @@ int main()
 ```
 
 显示效果
-```
-```
 ```cpp
 #include<iostream>
 
@@ -268,7 +266,6 @@ index={{ index }}
 ```
 
 显示效果
-```
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <student>
@@ -288,6 +285,8 @@ index={{ index }}
 1.\int\sqrt\frac{1+x}{1-x}dx
 (```)
 ```
+
+> 当前网站无法显示数学公式。
 
 显示效果
 ```math
