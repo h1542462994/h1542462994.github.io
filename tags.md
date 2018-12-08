@@ -35,9 +35,9 @@ header-img: "img/semantic.jpg"
   <div class="post-preview">
 	<a href="{{ post.url }}" title="{{ post.title }}">
 		<h2 class="post-title">{{ post.title }}</h2>
-		<% if(post.subtitle && post.subtitle.length) { %>
+		{% if(post.subtitle && post.subtitle.length) { %}
 			<h3 class="post-subtitle">{{ post.subtitle }}</h3>
-		<% } %>
+		{% } %}
 	</a>
   </div>
 {% endfor %}
