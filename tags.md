@@ -28,10 +28,6 @@ header-img: "img/semantic.jpg"
 	<span class="tag-text">{{ tag[0] }}</span>
   </span>
 {% for post in tag[1] %}
-  <li class="listing-item">
-  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-  </li>
   <div class="post-preview">
 	<a href="{{ post.url }}" title="{{ post.title }}">
 		<h2 class="post-title">{{ post.title }}</h2>
