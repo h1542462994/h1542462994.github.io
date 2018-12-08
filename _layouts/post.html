@@ -13,9 +13,9 @@ layout: default
         <div class="row">
             <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2">
                 <div class="post-heading">
-                    <div class="Tags">
+                    <div id="tag_cloud" class="tags">
                         {% for tag in page.tags %}
-                        <a class="tag" href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                        <a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
                         {% endfor %}
                     </div>
                     <h1>{{ page.title }}</h1>
