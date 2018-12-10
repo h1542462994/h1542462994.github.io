@@ -290,5 +290,5 @@ index={{ index }}
 
 显示效果
 ```math
-1.\int\sqrt\frac{1+x}{1-x}dx
+1.<span>\int\sqrt\frac{1+x}{1-x}dx</span>
 ```
