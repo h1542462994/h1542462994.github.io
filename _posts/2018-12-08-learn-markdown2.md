@@ -7,6 +7,10 @@ tags: [Markdown]
 description: "学习Markdown"
 ---
 
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 #### 摘要
 
 一般来说，markdown编译器都支持主流编程语言和一些特殊语言的代码高亮。
