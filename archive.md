@@ -17,7 +17,7 @@ header-img: "img/Red-Brown.jpg"
   <div class="post-preview">
 	<a href="{{ post.url }}" title="{{ post.title }}">
 		<h2 class="post-title">{{post.title}}</h2>
-		<h3 class="post-subtitle">{{ post.create | date:"%Y-%m-%d" }}</h3>
+		<h3 class="post-subtitle">create: {{ post.create | date:"%Y-%m-%d" }} | update: {{ post.update | date:"%Y-%m-%d" }}</h3>
 	</a>
   </div>
 {% endfor %}

@@ -276,7 +276,6 @@ hr.small {
   margin-top: -5px;
 }
 .intro-header .post-heading .meta {
-  font-family: 'Lora', 'Times New Roman', serif;
   font-weight: 300;
   font-size: 14px;
 }
@@ -315,7 +314,6 @@ hr.small {
   margin-bottom: 10px;
 }
 .post-preview > .post-meta {
-  font-family: 'Lora', 'Times New Roman', serif;
   color: #808080;
   font-size: 14px;
   margin-top: 0;
