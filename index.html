@@ -18,7 +18,7 @@ description: "一位C#工程师的随笔和技术分享"
             {{ post.content | strip_html | truncate:140 }}
         </div>
     </a>
-    <p class="post-meta">Posted on {{ post.date | date: "%Y-%m-%d" }}</p>
+    <p class="post-meta">create: {{ post.create | date: "%Y-%m-%d" }} update: {{ post.update | date: "%Y-%m-%d" }}</p>
 </div>
 <hr>
 {% endfor %}

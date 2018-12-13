@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 这是一篇博客文章模板
-date: 2015-3-02
+create: 2015-03-02
+update: 2015-03-02
 categories: blog
 tags: [例子]
 description: 文章金句。

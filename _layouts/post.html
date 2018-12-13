@@ -22,7 +22,7 @@ layout: default
                     {% if page.subtitle %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% endif %}
-                    <span class="meta">Posted on {{ page.date | date: "%Y-%m-%d" }}</span>
+                    <span class="meta">create: {{ page.create | date: "%Y-%m-%d" }} update:{{ page.update | date: "%Y-%m-%d" }}</span>
                 </div>
             </div>
         </div>

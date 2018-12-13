@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "[Markdown]基础篇：语法高亮预览"
-date: 2018-12-08
+create: 2018-12-08
+update: 2018-12-08
 categories: blog
 tags: [Markdown]
 description: "学习Markdown"

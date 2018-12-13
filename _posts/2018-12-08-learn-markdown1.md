@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "[Markdown]入门篇：开始学习markdown"
-date: 2018-12-08
+create: 2018-12-08
+update: 2018-12-08
 categories: blog
 tags: [Markdown]
 description: "学习Markdown"
