@@ -20,8 +20,6 @@ description: ""
 
 > 如何和aspserver进行交互。
 
-[部署](https://h1542462994.github.io/children/2018/12/23/aspserver-deploy/)
-
 [实现逻辑](https://h1542462994.github.io/children/2018/12/23/aspserver-logical/)
 
 [数据库模型及交互](https://h1542462994.github.io/children/2018/12/23/aspserver-mysql/)
