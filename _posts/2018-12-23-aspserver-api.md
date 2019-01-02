@@ -10,84 +10,122 @@ description: ""
 
 ## API文档
 
-> `GET`方法已禁止，必须使用`POST`方法。
-
 > 当前服务器地址`http://39.108.120.239`
 
-#### 登录
+### 第一部分：用户凭证部分 
 
-##### 地址
+> `GET`方法已禁止，必须使用`POST`方法。
+
+#### 地址
 
 ```
-${root}/api/login
+${root}/api/user
 ```
 
-##### 参数
+#### 参数
 
 ```json
 {
-    "username":"$username",
-    "password":"$password",
-    "devicetype":"mobile/pc",
-    "devicename":"devicename"
+    "method":"$method:enum",//register,wejhlogin,login,autologin,changepw,changenickname
+	"username":"$username:string",
+	"password":"$password:string",
+	"nickname":"$nickname:string",
+	"devicetype":"$nickname:enum",//web,mobile,pc
+	"newpassword":"$password:string",
+	"credit":"$credit:string"
 }
 ```
 
-> devicetype 必须指定为`mobile`或`pc`否则将无法正常访问。
+> devicetype 必须指定为`mobile`或`pc`或`web`否则将无法正常访问。
 
-##### 返回
+#### 注册
+
+> 当method=`register`跳转至此方法。
+
+需要提供的字段
+
+`method`,`username`,`password`,`nickname`
 
 返回状态码及消息
 
 | code | msg |
 | :---: | --- |
 | 400 | 无效的访问。 |
-| 403 | 设备类型不符合。 |
-| 403 | 用户名或密码不能为空。 |
-| 403 | 未注册账户。 |
-| 403 | 密码错误。 |
-| 200 | 登录成功。 |
+| 403 | 用户名，密码，或者昵称为空。 |
+| 403 | 用户名不符合命名规则，用户名应不包含英文特殊字符，长度在2~10位，且不能为纯数字。 |
+| 403 | 密码太长或太短。 |
+| 403 | 昵称不符合命名规则，昵称长度应该在2~12位。 |
+| 403 | 该账号已存在。 |
+| 200 | 注册账号成功。 |
+
+> 通过此类型注册的账户账户类型始终为`common`。
+
+输入检查
+
+1.用户名：用户名长度需在2~10位，不能包括英文特殊字符，且不能为纯数字。
+2.密码：长度在6~20位。
+3.昵称：长度在2~15位。
 
 成功返回数据
 
 ```json
 {
     "code":200,
-    "msg":"登录成功",
-    "data":{
-        "username":"201806061201",
-        "usertype":1,
-        "credit":"706637cb00ce4ab7a1c73014524d2847",
-        "devicename":"android7.4"
-    }
+    "msg":"注册账号成功。",
 }
 ```
 
-#### 自动登录
+#### 登录
 
-##### 地址
+> 当method=`login`时跳转到此方法
 
-```
-${root}/api/autologin
-```
+需要提供的字段
+`method`,`username`,`password`,`devicetype`
 
-##### 参数
-```json
-{
-    "credit":"$credit"
-}
-```
-
-##### 返回
+> 只有当`devicetype`为`pc`、`web`或`mobile`时才能成功登录，当前进度下`web`暂不开放。
 
 返回状态码及消息
 
 | code | msg |
 | :---: | --- |
 | 400 | 无效的访问。 |
-| 403 | 自动登录失败。 |
+| 403 | 设备类型不符合 |
+| 403 | 用户名或密码为空 |
+| 403 | 该用户不存在 |
+| 403 | 用户密码错误 |
+| 200 | 登录成功 |
+
+```json
+{
+    "code":200,
+    "msg":"自动登录成功",
+    "data":{
+        "username":"test1",
+        "usertype":"COMMON",
+        "credit":"706637cb00ce4ab7a1c73014524d2847",
+        "devicetype":"mobile"
+    }
+}
+```
+
+#### 自动登录
+
+> 当method=`autologin`时跳转到此方法
+
+需要提供的字段
+
+`method`,`credit`
+
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的访问。 |
+| 403 | 用户凭证为空 |
+| 200 | 自动登录已失效，请重新登录 |
+| 402 | 自动登录失败。 |
 | 403 | 自动登录已失效，请重新绑定账号。 |
-| 200 | 自动登录成功。 |
+| 200 | 自动登录成功 |
 
 > 自动登录后，原来的`credit`会失效，这是为了提高安全性。
 
@@ -98,13 +136,17 @@ ${root}/api/autologin
     "code":200,
     "msg":"自动登录成功",
     "data":{
-        "username":"201806061201",
-        "usertype":1,
+        "username":"test1",
+        "usertype":"COMMON",
         "credit":"706637cb00ce4ab7a1c73014524d2847",
-        "devicename":"android7.4"
+        "devicetype":"mobile"
     }
 }
 ```
+
+--------------
+
+这是可爱的分割线。
 
 #### 绑定密码
 

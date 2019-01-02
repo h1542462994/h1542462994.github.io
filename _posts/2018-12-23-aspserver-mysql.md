@@ -70,13 +70,11 @@ use wejhplatform;
     "name": "usercredit",
     "table":{
         "id": "int not null AUTO_INCREMENT",
-        "username": "text not null",
-        "usertype": "int not null",
-        "password": "text not null",
-        "token": "text",
-        "mobile_name":"text",
+        "nickname":"text not null",
+        "password":"text not null",
+        "usertype":"text not null",//COMMON,TEST,WEJH
+        "web_credit":"text",
         "mobile_credit":"text",
-        "pc_name":"text",
         "pc_credit":"text"
     },
     "primarykey":"id"
@@ -90,13 +88,11 @@ mysql
 ```
 create table usercredit(
     id int not null AUTO_INCREMENT,
-    username text not null,
-    usertype int not null,
+    nickname text not null,
     password text not null,
-    token text,
-    mobile_name text,
+    usertype text not null,
+    web_credit text,
     mobile_credit text,
-    pc_name text,
     pc_credit text,
     PRIMARY KEY (id)
 );
@@ -114,11 +110,18 @@ create table usercredit(
         "id":"int not null AUTO_INCREMENT",
         //credit
         "username":"text not null",
+        "jhpid":"text",
+        "pwbind_jh":"text",
+        "state_jh":"int",
         //pwbinds
-        "pwbind_lib":"text not null",
-        "pwbind_card":"text not null",
-        "pwbind_ycedu":"text not null",
-        "pwbind_zfedu":"text not null",
+        "pwbind_lib":"text",
+        "state_lib":"text",
+        "pwbind_card":"text",
+        "state_card":"text",
+        "pwbind_ycedu":"text",
+        "state_ycedu":"text",
+        "pwbind_zfedu":"text",
+        "state_zfedu":"text",
         //infos
         "email":"text",
         "phone":"text",
