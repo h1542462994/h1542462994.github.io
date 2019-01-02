@@ -18,7 +18,7 @@ description: ""
 
 #### 地址
 
-```
+```csharp
 ${root}/api/user
 ```
 
@@ -68,7 +68,7 @@ ${root}/api/user
 
 成功返回数据
 
-```
+```csharp
 {
     "code":200,
     "msg":"注册账号成功。",
@@ -95,7 +95,7 @@ ${root}/api/user
 | 403 | 用户密码错误 |
 | 200 | 登录成功 |
 
-```
+```csharp
 {
 	"code": 200,
 	"msg": "登录成功",
@@ -131,7 +131,7 @@ ${root}/api/user
 
 成功返回数据
 
-```
+```csharp
 {
     "code":200,
     "msg":"自动登录成功",
@@ -164,7 +164,7 @@ ${root}/api/user
 
 成功返回数据
 
-```
+```csharp
 {
 	"code":200,
 	"msg":""
@@ -184,7 +184,7 @@ ${root}/api/pwbind
 ```
 
 ##### 参数
-```
+```csharp
 {
     "credit":"$credit",
     "bindname":"$bindname", //lib:图书馆,card:校园卡,ycedu:原创教务,zfedu:正方教务.
@@ -192,7 +192,7 @@ ${root}/api/pwbind
 }
 ```
 
-```
+```csharp
 {
     "code":200,
     "msg":"绑定%成功。" //zfedu:绑定正方成功。
@@ -207,13 +207,13 @@ ${root}/api/pwbind
 
 ##### 地址
 
-```
+```csharp
 ${root}/api/time
 ```
 
 ##### 返回
 
-```
+```csharp
 {
     "code":200,
     "msg":"获取时间成功",
@@ -233,7 +233,7 @@ ${root}/api/time
 
 ##### 参数
 
-```
+```csharp
 {
     "credit":"$credit"
 }
@@ -245,7 +245,7 @@ ${root}/api/time
 
 成功
 
-```
+```csharp
 {
 	"code": 200,
 	"msg": "获取课表成功。",
