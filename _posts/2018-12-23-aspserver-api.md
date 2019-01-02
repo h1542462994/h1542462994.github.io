@@ -24,7 +24,7 @@ ${root}/api/user
 
 #### 参数
 
-```json
+```
 {
     "method":"$method:enum",//register,wejhlogin,login,autologin,changepw,changenickname
 	"username":"$username:string",
@@ -68,7 +68,7 @@ ${root}/api/user
 
 成功返回数据
 
-```json
+```
 {
     "code":200,
     "msg":"注册账号成功。",
@@ -95,16 +95,16 @@ ${root}/api/user
 | 403 | 用户密码错误 |
 | 200 | 登录成功 |
 
-```json
+```
 {
-    "code":200,
-    "msg":"自动登录成功",
-    "data":{
-        "username":"test1",
-        "usertype":"COMMON",
-        "credit":"706637cb00ce4ab7a1c73014524d2847",
-        "devicetype":"mobile"
-    }
+	"code": 200,
+	"msg": "登录成功",
+	"data": {
+		"username": "test1",
+		"nickname": "test1",
+		"credit": "e749e26edf7049448d3f555c83ad5a57",
+		"usertype": "COMMON"
+	}
 }
 ```
 
@@ -131,7 +131,7 @@ ${root}/api/user
 
 成功返回数据
 
-```json
+```
 {
     "code":200,
     "msg":"自动登录成功",
@@ -141,6 +141,33 @@ ${root}/api/user
         "credit":"706637cb00ce4ab7a1c73014524d2847",
         "devicetype":"mobile"
     }
+}
+```
+
+#### 修改密码
+
+> 当method=`changpw`时跳转到此方法
+
+需要提供的字段
+
+`method`,`username`,`password`,`newpassword`
+
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的访问 |
+| 403 | 用户名，旧密码或新密码为空 |
+| 402 | 该用户不存在 |
+| 402 | 该用户不存在 |
+| 200 | 修改密码成功 |
+
+成功返回数据
+
+```
+{
+	"code":200,
+	"msg":""
 }
 ```
 
@@ -157,7 +184,7 @@ ${root}/api/pwbind
 ```
 
 ##### 参数
-```json
+```
 {
     "credit":"$credit",
     "bindname":"$bindname", //lib:图书馆,card:校园卡,ycedu:原创教务,zfedu:正方教务.
@@ -165,7 +192,7 @@ ${root}/api/pwbind
 }
 ```
 
-```json
+```
 {
     "code":200,
     "msg":"绑定%成功。" //zfedu:绑定正方成功。
@@ -186,7 +213,7 @@ ${root}/api/time
 
 ##### 返回
 
-```json
+```
 {
     "code":200,
     "msg":"获取时间成功",
@@ -206,7 +233,7 @@ ${root}/api/time
 
 ##### 参数
 
-```json
+```
 {
     "credit":"$credit"
 }
@@ -218,7 +245,7 @@ ${root}/api/time
 
 成功
 
-```json
+```
 {
 	"code": 200,
 	"msg": "获取课表成功。",

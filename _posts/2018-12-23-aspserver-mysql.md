@@ -70,6 +70,7 @@ use wejhplatform;
     "name": "usercredit",
     "table":{
         "id": "int not null AUTO_INCREMENT",
+        "username":"text not null",
         "nickname":"text not null",
         "password":"text not null",
         "usertype":"text not null",//COMMON,TEST,WEJH
@@ -88,6 +89,7 @@ mysql
 ```
 create table usercredit(
     id int not null AUTO_INCREMENT,
+    username text not null,
     nickname text not null,
     password text not null,
     usertype text not null,
@@ -123,6 +125,7 @@ create table usercredit(
         "pwbind_zfedu":"text",
         "state_zfedu":"text",
         //infos
+        "portrait":"text",//用户头像
         "email":"text",
         "phone":"text",
         "linkedcourse":"text", //链接键,用|分割. $based list<string>
@@ -138,10 +141,18 @@ mysql
 create table userinfo(
     id int not null AUTO_INCREMENT,
     username text not null,
+    jhpid text not null,
+    pwbind_jh text not null,
+    state_jh int not null,
     pwbind_lib text,
+    state_lib int not null,
     pwbind_card text,
+    state_card int not null,
     pwbind_ycedu text,
+    state_ycedu int not null,
     pwbind_zfedu text,
+    state_zfedu int not null,
+    portrait text not null,
     email text,
     phone text,
     linkedcourse text,
