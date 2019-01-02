@@ -23,7 +23,7 @@ description: ""
 > 注意，因为`MySqlUtil`和`SqlUtil`依赖的类并不相同，所以创建了两个类，以适配数据库，但是两种数据库的语法是相同的。
 
 修改`appsettings.json`中的`ConnectionStrings`为
-```json
+```
 {
     "wejhplatform":"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=wejhplatform;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
 }
@@ -36,7 +36,7 @@ description: ""
 将文档中所有`SqlUtil`换成`MySqlUtil`。
 
 修改`appsettings.json`中的`ConnectionStrings`为
-```json
+```
 {
     "wejhplatform":"server=localhost;userid=root;password=123456;database=wejhplatform;"
 }
@@ -44,7 +44,7 @@ description: ""
 
 #### contents
 
-```json
+```
 {
     "name":"wejhplatform",
     "tables":[
@@ -65,11 +65,12 @@ use wejhplatform;
 
 #### models
 
-```json
+```
 {
     "name": "usercredit",
     "table":{
         "id": "int not null AUTO_INCREMENT",
+        //
         "username":"text not null",
         "nickname":"text not null",
         "password":"text not null",
@@ -104,7 +105,7 @@ create table usercredit(
 
 #### models
 
-```json
+```
 {
     "name":"userinfo",
     "table":
@@ -117,13 +118,13 @@ create table usercredit(
         "state_jh":"int",
         //pwbinds
         "pwbind_lib":"text",
-        "state_lib":"text",
+        "state_lib":"int",
         "pwbind_card":"text",
-        "state_card":"text",
+        "state_card":"int",
         "pwbind_ycedu":"text",
-        "state_ycedu":"text",
+        "state_ycedu":"int",
         "pwbind_zfedu":"text",
-        "state_zfedu":"text",
+        "state_zfedu":"int",
         //infos
         "portrait":"text",//用户头像
         "email":"text",
