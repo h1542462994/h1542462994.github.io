@@ -24,7 +24,7 @@ ${root}/api/user
 
 #### 参数
 
-```
+```csharp
 {
     "method":"$method:enum",//register,wejhlogin,login,autologin,changepw,changenickname
 	"username":"$username:string",
