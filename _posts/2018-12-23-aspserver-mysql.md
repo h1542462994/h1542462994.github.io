@@ -42,14 +42,16 @@ description: ""
 }
 ```
 
-#### contents
+#### 架构
 
-```
+```csharp
 {
-    "name":"wejhplatform",
+    "name":"ttyplatform",
     "tables":[
         "usercredit",
-
+        "userinfo",
+        "msgboard",
+        "course",
     ]
 }
 ```
@@ -57,13 +59,13 @@ description: ""
 #### create database
 
 ```
-create database wejhplatform;
-use wejhplatform;
+create database ttyplatform;
+use ttyplatform;
 ```
 
 ### 用户凭证模块
 
-#### models
+#### 架构
 
 ```csharp
 {
@@ -107,7 +109,7 @@ create table usercredit(
 
 ### 用户信息模块
 
-#### models
+#### 架构
 
 ```csharp
 {
@@ -172,10 +174,19 @@ create table userinfo(
 );
 ```
 
+### 留言系统模块
+
+架构
+
+```csharp
+
+```
+
 ### 教务系统模块
 
-#### models
-```json
+#### 架构
+
+```csharp
 {
     "name":"course",
     "table":
