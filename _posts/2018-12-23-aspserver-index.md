@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "[wejh]微精弘全平台后端(正在开发)"
+title: "[Project]微精弘全平台后端(正在开发)"
 create: 2018-12-23
 update: 2018-12-23
 categories: blog
-tags: [wejh]
+tags: [Project]
 description: ""
 ---
 
@@ -20,8 +20,12 @@ description: ""
 
 > 如何和aspserver进行交互。
 
-[实现逻辑](https://h1542462994.github.io/children/2018/12/23/aspserver-logical/)
+[开发进展](https://h1542462994.github.io/children/2018/12/23/aspserver-progress/)
 
 [数据库模型及交互](https://h1542462994.github.io/children/2018/12/23/aspserver-mysql/)
 
 [第三方平台提供的API文档](https://h1542462994.github.io/children/2018/12/23/aspserver-provideapi/)
+
+### 大轮子和小轮子
+
+[MsgBoard](https://h1542462994.github.io/childern/2019/01/03/aspserver-msgboard/)
