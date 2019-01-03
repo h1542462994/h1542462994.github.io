@@ -61,22 +61,26 @@ create database wejhplatform;
 use wejhplatform;
 ```
 
-### 登录模块
+### 用户凭证模块
 
 #### models
 
-```
+```csharp
 {
     "name": "usercredit",
     "table":{
         "id": "int not null AUTO_INCREMENT",
-        //
         "username":"text not null",
+        //已加密
         "nickname":"text not null",
+        //已加密
         "password":"text not null",
         "usertype":"text not null",//COMMON,TEST,WEJH
+        //已加密
         "web_credit":"text",
+        //已加密
         "mobile_credit":"text",
+        //已加密
         "pc_credit":"text"
     },
     "primarykey":"id"
@@ -105,29 +109,36 @@ create table usercredit(
 
 #### models
 
-```
+```csharp
 {
     "name":"userinfo",
     "table":
     {
         "id":"int not null AUTO_INCREMENT",
-        //credit
         "username":"text not null",
+        //bind_info
+        //已加密
         "jhpid":"text",
+        //已加密
         "pwbind_jh":"text",
         "state_jh":"int",
-        //pwbinds
+        //已加密
         "pwbind_lib":"text",
         "state_lib":"int",
+        //已加密
         "pwbind_card":"text",
         "state_card":"int",
+        //已加密
         "pwbind_ycedu":"text",
         "state_ycedu":"int",
+        //已加密
         "pwbind_zfedu":"text",
         "state_zfedu":"int",
         //infos
         "portrait":"text",//用户头像
+        //已加密
         "email":"text",
+        //已加密
         "phone":"text",
         "linkedcourse":"text", //链接键,用|分割. $based list<string>
     }
