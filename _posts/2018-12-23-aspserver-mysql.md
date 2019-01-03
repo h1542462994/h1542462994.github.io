@@ -135,7 +135,7 @@ create table usercredit(
         "pwbind_zfedu":"text",
         "state_zfedu":"int",
         //infos
-        "portrait":"text",//用户头像
+        "portrait":"text",//用户头像,默认值为"default::unset.jpg"
         //已加密
         "email":"text",
         //已加密
