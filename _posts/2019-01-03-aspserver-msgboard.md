@@ -28,7 +28,7 @@ description: ""
         "portrait":"$portrait:string",
         "istop":"$istop:boolean",//是否置顶。
         "islocked":"$islocked:boolean",//是否已经锁定。
-        "time":"$time:datetime"//这里指更新的日期和时间。
+        "time":"$time:string"//这里指更新的日期和时间。
     },
     "content":"$content:string",
     "comments":[{
@@ -38,7 +38,7 @@ description: ""
             "nickname":"$nickname:string",
             "type":"$type:int"
         },
-        "time":"$time:datetime",
+        "time":"$time:string",
         "content":"$content:string",
     }]
 }
