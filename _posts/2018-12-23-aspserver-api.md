@@ -38,7 +38,7 @@ ${root}/api/user
 
 > devicetype 必须指定为`mobile`或`pc`或`web`否则将无法正常访问。
 
-#### 注册
+#### 注册【需要提供用户名的版本】
 
 > 当method=`register`跳转至此方法。
 
@@ -75,12 +75,61 @@ ${root}/api/user
 }
 ```
 
+#### 注册【快速版本】
+
+> 当method=`register2`时跳转到此方法。
+
+需要提供的字段
+
+`method`,`password`,`nickname`
+
+样例请求
+
+`url`:http://39.108.120.239/api/user
+
+`data`:method=register2&password=123456&nickname=test1
+
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的访问。 |
+| 403 | 密码/昵称为空 | //prepared to update.
+| 403 | 密码太长或太短 |
+| 200 | 注册账户成功 |
+
+输入检查
+
+2.密码：长度在6~20位。
+3.昵称：长度在2~15位。
+
+成功返回数据
+
+```csharp
+{
+	"code":200,
+	"msg":"注册账户成功",
+	"data":
+	{
+		"username":"10086",
+		"nickname":"test1",
+		"usertype":"COMMON"
+	}
+}
+```
+
 #### 登录
 
 > 当method=`login`时跳转到此方法
 
 需要提供的字段
 `method`,`username`,`password`,`devicetype`
+
+样例请求
+
+`url`:http://39.108.120.239/api/user
+
+`data`:method=login&username=10086&password=123456&devicetype=mobile
 
 > 只有当`devicetype`为`pc`、`web`或`mobile`时才能成功登录，当前进度下`web`暂不开放。
 
@@ -193,7 +242,7 @@ ${root}/api/user
 | 403 | 自动登录已失效，请重新登录 |
 | 200 | 修改昵称成功 |
 
-#### *微精弘快速绑定及登录
+#### *微精弘快速绑定及登录[准备弃用]
 
 > 当method=`wejhlogin`时跳转到此方法
 
@@ -333,9 +382,19 @@ ${root}/api/getinfo
 ```csharp
 {
 	"credit":"$credit",
-	"type":"$type"
+	"type":"$type"//bind
 }
 ```
+
+#### 绑定信息
+
+> 当type=`bind`时跳转到此方法
+
+样例请求:
+
+`url`:http://39.108.120.239/api/getinfo
+
+`data`:type=bind&credit=43c1ce34f16240b0ad92e507065e2ac9
 
 返回状态码及消息
 
@@ -345,10 +404,6 @@ ${root}/api/getinfo
 | 403 | 自动登录已失效，请重新登录 |
 | 403 | 不存在该类型信息 |
 | 200 | 获取成功 |
-
-#### 绑定信息
-
-> 当type=`bind`时跳转到此方法
 
 成功返回数据
 
@@ -376,14 +431,57 @@ ${root}/api/getinfo
 		]}
 ```
 
-#### 用户基础信息
+### 2.3公共信息
 
-> 当type=`base`时跳转到此方法
+#### 地址
+
+```
+${root}/api/shared
+```
+
+#### 参数
+
+```csharp
+{
+	"type":"$type",//user
+	"query":"$query"
+}
+```
+
+#### 用户信息[用户名，昵称，用户类型，用户头像]
+
+> 当type=`user`时跳转到此方法
+
+样例请求
+
+`url`:http://39.108.120.239/api/shared
+
+`data`:type=user&query=test1
+
+> 在这里`query`指代查询用户的用户名。
+
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的访问 |
+| 403 | 不存在该用户 |
+| 200 | 获取信息成功 |
 
 成功返回数据
 
-
-
+```csharp
+{
+	"code":200,
+	"msg":"获取信息成功",
+	"data":
+	{
+		"username":"test1",
+		"nickname":"test1",
+		"usertype":"COMMON","portrait":"FFD8FFE00010..."
+	}
+}
+```
 
 #### 获取时间
 

@@ -143,7 +143,8 @@ create table usercredit(
         //已加密
         "phone":"text",
         "linkedcourse":"text", //链接键,用|分割. $based list<string>
-    }
+    },
+    "primarykey":"id"
 }
 ```
 
@@ -207,7 +208,8 @@ create table userinfo(
         "timerange":"text",//时间{1-3}表示第1~3节
         "classscore":"int", //学分
         "classhour":"int" //学时
-    }
+    },
+    "primarykey":"id"
 }
 ```
 

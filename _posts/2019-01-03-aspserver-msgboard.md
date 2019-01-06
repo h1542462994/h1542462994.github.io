@@ -16,7 +16,7 @@ description: ""
 
 没有分类系统，每个用户都可以新建一个话题，其他人可以在底下评论。
 
-```json
+```csharp
 {
     "id":"$id:int",
     "user":{
@@ -52,4 +52,31 @@ time:datetime
 istop:int
 islocked:int
 comments:string ::jsonof array[id,username,time,content]
+```
+
+聊天系统
+
+```json
+{
+    "name":"chat",
+    "table":{
+        "id":"int not null AUTO_INCREMENT",
+        "from":"text",
+        "to":"text",
+        "time":"datetime",
+        "content":"text"
+    }
+}
+```
+
+```
+create table chat(
+    int not null AUTO_INCREMENT,
+    from text not null,
+    to text not null,
+    time text not null,
+    content text not null,
+    PRIMARY KEY(id)
+);
+
 ```
