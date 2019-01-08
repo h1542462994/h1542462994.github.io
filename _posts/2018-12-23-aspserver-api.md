@@ -483,6 +483,46 @@ ${root}/api/shared
 }
 ```
 
+### 第三部分:留言板部分
+
+#### 地址
+
+```
+${root}/api/msgboard
+```
+
+#### 参数
+```csharp
+{
+	"method":"string"//add,remove,add-comment,remove-comment,update,getnew,getupdateid
+	"credit":"string"//用户凭证
+	"id":"int"//请求id
+	"subid":"int"//副id
+	"content":"string"//请求数据
+	"pic":"byte[]"//图片数据
+}
+```
+
+#### 添加留言
+
+> 当method=`add`时跳转到此方法
+
+需要提供的字段:`method`,`credit`,`content`,`pic`[可选]
+
+样例请求:
+
+`url`:http://39.108.120.239/api/msgboard
+
+`data`:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=hello%32world
+
+返回状态码及消息:
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+
+成功返回数据
+
 #### 获取时间
 
 > `GET`和`POST`方法都可以。

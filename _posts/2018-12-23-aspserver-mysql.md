@@ -12,6 +12,12 @@ description: ""
 
 ------
 
+### 常用Sql语句
+
+```
+alter table $表名 add $列名 $描述
+```
+
 ### 数据库
 
 #### 配置
@@ -142,6 +148,7 @@ create table usercredit(
         "email":"text",
         //已加密
         "phone":"text",
+        "priority_msgboard":"int", //msgboard权限
         "linkedcourse":"text", //链接键,用|分割. $based list<string>
     },
     "primarykey":"id"
@@ -170,6 +177,7 @@ create table userinfo(
     portrait text not null,
     email text,
     phone text,
+    priority_msgboard int not null,
     linkedcourse text,
     PRIMARY KEY (id)
 );
@@ -177,10 +185,40 @@ create table userinfo(
 
 ### 留言系统模块
 
-架构
+#### 架构
 
 ```csharp
+{
+    "name":"msgboard",
+    "table":
+    {
+        "id":"int not null AUTO_INCREMENT",
+        "username":"text not null",
+        "time":"text not null",
+        "istop":"int not null",
+        "islocked":"int not null",
+        "content":"text",
+        "comments":"text",
+        "pic":"MediumBlob"
+    },
+    "primarykey":"id"    
+}
+```
 
+#### credit table
+
+```
+create table msgboard(
+    id int not null AUTO_INCREMENT,
+    username text not null,
+    time text not null,
+    istop int not null,
+    islocked int not null,
+    content text,
+    comments text,
+    pic MediumBlob,
+    PRIMARY KEY(id)
+);
 ```
 
 ### 教务系统模块
