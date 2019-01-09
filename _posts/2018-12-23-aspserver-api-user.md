@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Project]微精弘全平台后端(正在开发)-API文档"
+title: "[Project]微精弘全平台后端(正在开发)-API文档-用户部分"
 create: 2018-12-23
 update: 2018-12-23
-categories: children
+categories: blog
 tags: [Project]
 description: ""
 ---
@@ -11,6 +11,20 @@ description: ""
 ## API文档
 
 > 当前服务器地址`http://39.108.120.239`
+
+### 文档中包含的方法的接口
+
+> user:`register`,`register2`,`login`
+
+-------
+
+### 更新日志
+
+*2019/1/8* 修改密码为需要MD5加密
+
+*2019/1/9* 添加留言板模块
+
+-------
 
 ### 第一部分：用户凭证部分 
 
@@ -38,13 +52,19 @@ ${root}/api/user
 
 > devicetype 必须指定为`mobile`或`pc`或`web`否则将无法正常访问。
 
-#### 注册【需要提供用户名的版本】
+#### [Obsolute]注册【需要提供用户名的版本】
 
 > 当method=`register`跳转至此方法。
 
 需要提供的字段
 
 `method`,`username`,`password`,`nickname`
+
+样例请求
+
+`url`:http://39.108.120.239/api/user
+
+`data`:method=register&username=test1&password=123456&nickname=test1
 
 返回状态码及消息
 
@@ -87,7 +107,9 @@ ${root}/api/user
 
 `url`:http://39.108.120.239/api/user
 
-`data`:method=register2&password=123456&nickname=test1
+`data`:method=register2&password=E10ADC3949BA59ABBE56E057F20F883E&nickname=test1
+
+> 密码请求时需要经过MD5加密，否则无法通过密码验证。
 
 返回状态码及消息
 
@@ -118,7 +140,7 @@ ${root}/api/user
 }
 ```
 
-#### 登录
+#### 登录 -update 1/8
 
 > 当method=`login`时跳转到此方法
 
@@ -129,9 +151,12 @@ ${root}/api/user
 
 `url`:http://39.108.120.239/api/user
 
-`data`:method=login&username=10086&password=123456&devicetype=mobile
+`data`:method=login&username=10086&password=E10ADC3949BA59ABBE56E057F20F883E&devicetype=mobile
+
 
 > 只有当`devicetype`为`pc`、`web`或`mobile`时才能成功登录，当前进度下`web`暂不开放。
+
+> 密码请求时需要经过MD5加密，否则无法通过密码验证。
 
 返回状态码及消息
 
@@ -166,6 +191,12 @@ ${root}/api/user
 需要提供的字段
 
 `method`,`credit`
+
+样例请求
+
+`url`:http://39.108.120.239/api/user
+
+`data`:method=autologin&credit=118fad6b0d19442b94924ead72e01bdf
 
 返回状态码及消息
 
@@ -203,6 +234,14 @@ ${root}/api/user
 
 `method`,`username`,`password`,`newpassword`
 
+样例请求
+
+`url`:http://39.108.120.239/api/user
+
+`data`:method=changepw&username=10086&password=E10ADC3949BA59ABBE56E057F20F883E&newpassword=E10ADC3949BA59ABBE56E057F20F883E
+
+> 密码请求时需要经过MD5加密，否则无法通过密码验证。
+
 返回状态码及消息
 
 | code | msg |
@@ -225,13 +264,21 @@ ${root}/api/user
 }
 ```
 
-#### 修改昵称
+#### [Prepared to move]修改昵称
 
 > 当method=`changenickname`时跳转到此方法
+
+> *waring:* 该方法准备最近弃用，届时将合并到到`userinfo.setinfo`方法。
 
 需要提供的字段
 
 `method`,`credit`,`nickname`
+
+样例请求
+
+`url`:http://39.108.120.239/api/user
+
+`data`:method=changenickname&credit=118fad6b0d19442b94924ead72e01bdf&nickname=test2
 
 返回状态码及消息
 
@@ -242,9 +289,11 @@ ${root}/api/user
 | 403 | 自动登录已失效，请重新登录 |
 | 200 | 修改昵称成功 |
 
-#### *微精弘快速绑定及登录[准备弃用]
+#### *[Prepared to obsolute]微精弘快速绑定及登录
 
 > 当method=`wejhlogin`时跳转到此方法
+
+> *waring:* 因接口分离导致的复杂性，准备将其弃用，并合并到`login`方法.
 
 需要提供的字段
 
@@ -280,7 +329,6 @@ ${root}/api/user
 
 --------------
 
-======这是可爱的分割线。======
 
 ### 第二部分：用户信息部分
 
@@ -315,6 +363,12 @@ ${root}/api/bind
 
 > 在这里，pid指学号。
 
+样例请求
+
+`url`:http://39.108.120.239/api/bind
+
+`data`:bindname=jh&credit=118fad6b0d19442b94924ead72e01bdf&password=123456&pid=201806061777
+
 返回状态码及消息。
 
 | code | msg |
@@ -345,6 +399,12 @@ ${root}/api/bind
 
 `credit`,`bindname`,`password`
 
+样例请求
+
+`url`:http://39.108.120.239/api/bind
+
+`data`:bindname=zfedu&credit=118fad6b0d19442b94924ead72e01bdf&password=123456
+
 返回状态码及消息。
 
 | code | msg |
@@ -367,8 +427,6 @@ ${root}/api/bind
 
 -------------
 
-======这是可爱的分割线======
-
 ### 2.2获取信息(指用户信息)
 
 #### 地址
@@ -389,6 +447,8 @@ ${root}/api/getinfo
 #### 绑定信息
 
 > 当type=`bind`时跳转到此方法
+
+需要提供的字段: `type`,`credit`
 
 样例请求:
 
@@ -428,8 +488,49 @@ ${root}/api/getinfo
 		"bindname":"card",
 		"pid":null,
 		"state":0}
-		]}
+	]
+}
 ```
+
+#### 用户基础信息
+
+> 当type=`base`时跳转到此方法
+
+需要提供的字段: `type`,`credit`
+
+样例请求:
+
+`url`:http://39.108.120.239/api/getinfo
+
+`data`:type=base&credit=43c1ce34f16240b0ad92e507065e2ac9
+
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的访问 |
+| 403 | 自动登录已失效，请重新登录 |
+| 403 | 不存在该类型信息 |
+| 200 | 获取成功 |
+
+成功返回数据
+
+```csharp
+{
+	"code": 200,
+	"msg": "获取成功",
+	"data": {
+		"username": "10086",
+		"nickname": "test1",
+		"usertype": "COMMON",
+		"portrait": "default::unset",
+		"email": "",
+		"phone": ""
+	}
+}
+```
+
+> 当`portrait`为`default::unset`时，表示其没有设置头像，设置头像后，返回一串Base64十六进制字符串。
 
 ### 2.3公共信息
 
@@ -474,54 +575,19 @@ ${root}/api/shared
 {
 	"code":200,
 	"msg":"获取信息成功",
-	"data":
-	{
-		"username":"test1",
+	"data":{
+		"username":"10086",
 		"nickname":"test1",
-		"usertype":"COMMON","portrait":"FFD8FFE00010..."
+		"usertype":"COMMON","portrait":"default::unset","premission_msgboard":0
 	}
 }
 ```
 
-### 第三部分:留言板部分
+> 这是用户公开的信息，这个和`user.getinfo::base`会少一些字段。
 
-#### 地址
+> 当`portrait`为`default::unset`时，表示其没有设置头像，设置头像后，返回一串Base64十六进制字符串。
 
-```
-${root}/api/msgboard
-```
-
-#### 参数
-```csharp
-{
-	"method":"string"//add,remove,add-comment,remove-comment,update,getnew,getupdateid
-	"credit":"string"//用户凭证
-	"id":"int"//请求id
-	"subid":"int"//副id
-	"content":"string"//请求数据
-	"pic":"byte[]"//图片数据
-}
-```
-
-#### 添加留言
-
-> 当method=`add`时跳转到此方法
-
-需要提供的字段:`method`,`credit`,`content`,`pic`[可选]
-
-样例请求:
-
-`url`:http://39.108.120.239/api/msgboard
-
-`data`:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=hello%32world
-
-返回状态码及消息:
-
-| code | msg |
-| :---: | --- |
-| 400 | 无效的请求 |
-
-成功返回数据
+#### 2.4设置用户信息
 
 #### 获取时间
 
@@ -549,7 +615,7 @@ ${root}/api/time
         "weeklasting":18
     }
 }
-```
+
 
 #### 获取课表
 

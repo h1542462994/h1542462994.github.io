@@ -3,7 +3,7 @@ layout: post
 title: "[Project]微精弘全平台后端(正在开发)-数据库模型与交互"
 create: 2018-12-23
 update: 2018-12-23
-categories: children
+categories: blog
 tags: [Project]
 description: ""
 ---
@@ -148,7 +148,7 @@ create table usercredit(
         "email":"text",
         //已加密
         "phone":"text",
-        "priority_msgboard":"int", //msgboard权限
+        "permission_msgboard":"int", //msgboard权限
         "linkedcourse":"text", //链接键,用|分割. $based list<string>
     },
     "primarykey":"id"
@@ -177,7 +177,7 @@ create table userinfo(
     portrait text not null,
     email text,
     phone text,
-    priority_msgboard int not null,
+    permission_msgboard int not null,
     linkedcourse text,
     PRIMARY KEY (id)
 );

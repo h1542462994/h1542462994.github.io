@@ -3,7 +3,7 @@ layout: post
 title: "[Project]微精弘全平台后端(正在开发)-留言板"
 create: 2018-01-03
 update: 2019-01-03
-categories: children
+categories: blog
 tags: [Project]
 description: ""
 ---
