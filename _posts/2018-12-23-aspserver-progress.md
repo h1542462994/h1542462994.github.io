@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Project]微精弘全平台后端(正在开发)-开发进展"
+title: "[Project]tty全平台后端(正在开发)-开发进展"
 create: 2018-12-23
 update: 2018-01-03
 categories: children
