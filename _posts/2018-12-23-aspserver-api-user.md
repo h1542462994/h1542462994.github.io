@@ -55,21 +55,19 @@ description: ""
 #### 地址
 
 ```csharp
-${root}/api/user
+$root/api/user
 ```
 
 #### 参数
 
 ```csharp
-{
-    "method":"$method:enum",//register,wejhlogin,login,autologin,changepw,changenickname
-	"username":"$username:string",
-	"password":"$password:string",
-	"nickname":"$nickname:string",
-	"devicetype":"$nickname:enum",//web,mobile,pc
-	"newpassword":"$password:string",
-	"credit":"$credit:string"
-}
+method:enum //register,wejhlogin,login,autologin,changepw,changenickname
+username:string
+password:string
+nickname:string
+devicetype:enum //web,mobile,pc
+newpassword:string
+credit:string
 ```
 
 > devicetype 必须指定为`mobile`或`pc`或`web`否则将无法正常访问。
@@ -86,9 +84,10 @@ ${root}/api/user
 
 样例请求
 
-`url`:http://39.108.120.239/api/user
-
-`data`:method=register&username=test1&password=123456&nickname=test1
+```
+url:http://39.108.120.239/api/user
+data:method=register&username=test1&password=123456&nickname=test1
+```
 
 返回状态码及消息
 
@@ -129,9 +128,10 @@ ${root}/api/user
 
 样例请求
 
-`url`:http://39.108.120.239/api/user
-
-`data`:method=register2&password=E10ADC3949BA59ABBE56E057F20F883E&nickname=test1
+```
+url:http://39.108.120.239/api/user
+data:method=register2&password=E10ADC3949BA59ABBE56E057F20F883E&nickname=test1
+```
 
 > 密码请求时需要经过MD5加密，否则无法通过密码验证。
 
@@ -173,10 +173,10 @@ ${root}/api/user
 
 样例请求
 
-`url`:http://39.108.120.239/api/user
-
-`data`:method=login&username=10086&password=E10ADC3949BA59ABBE56E057F20F883E&devicetype=mobile
-
+```
+url:http://39.108.120.239/api/user
+data:method=login&username=10086&password=E10ADC3949BA59ABBE56E057F20F883E&devicetype=mobile
+```
 
 > 只有当`devicetype`为`pc`、`web`或`mobile`时才能成功登录，当前进度下`web`暂不开放。
 
@@ -218,9 +218,10 @@ ${root}/api/user
 
 样例请求
 
-`url`:http://39.108.120.239/api/user
-
-`data`:method=autologin&credit=118fad6b0d19442b94924ead72e01bdf
+```
+url:http://39.108.120.239/api/user
+data:method=autologin&credit=118fad6b0d19442b94924ead72e01bdf
+```
 
 返回状态码及消息
 
@@ -260,9 +261,10 @@ ${root}/api/user
 
 样例请求
 
-`url`:http://39.108.120.239/api/user
-
-`data`:method=changepw&username=10086&password=E10ADC3949BA59ABBE56E057F20F883E&newpassword=E10ADC3949BA59ABBE56E057F20F883E
+```
+url:http://39.108.120.239/api/user
+data:method=changepw&username=10086&password=E10ADC3949BA59ABBE56E057F20F883E&newpassword=E10ADC3949BA59ABBE56E057F20F883E
+```
 
 > 密码请求时需要经过MD5加密，否则无法通过密码验证。
 
@@ -300,9 +302,10 @@ ${root}/api/user
 
 样例请求
 
-`url`:http://39.108.120.239/api/user
-
-`data`:method=changenickname&credit=118fad6b0d19442b94924ead72e01bdf&nickname=test2
+```
+url:http://39.108.120.239/api/user
+data:method=changenickname&credit=118fad6b0d19442b94924ead72e01bdf&nickname=test2
+```
 
 返回状态码及消息
 
@@ -361,18 +364,16 @@ ${root}/api/user
 #### 地址
 
 ```
-${root}/api/bind
+$root/api/bind
 ```
 
 #### 参数
 
 ```csharp
-{
-    "credit":"$credit",
-    "bindname":"$bindname", //jh:精弘账号,lib:图书馆,card:校园卡,ycedu:原创教务,zfedu:正方教务.
-    "password":"$password",
-	"pid":"$pid"//可选
-}
+credit:string
+bindname:enum //jh:精弘账号,lib:图书馆,card:校园卡,ycedu:原创教务,zfedu:正方教务.
+password:string
+pid:string//可选
 ```
 
 > 已完成的部分:`jh`,`zfedu`
@@ -389,9 +390,10 @@ ${root}/api/bind
 
 样例请求
 
-`url`:http://39.108.120.239/api/bind
-
-`data`:bindname=jh&credit=118fad6b0d19442b94924ead72e01bdf&password=123456&pid=201806061777
+```
+url:http://39.108.120.239/api/bind
+data:bindname=jh&credit=118fad6b0d19442b94924ead72e01bdf&password=123456&pid=201806061777
+```
 
 返回状态码及消息。
 
@@ -425,9 +427,10 @@ ${root}/api/bind
 
 样例请求
 
-`url`:http://39.108.120.239/api/bind
-
-`data`:bindname=zfedu&credit=118fad6b0d19442b94924ead72e01bdf&password=123456
+```
+url:http://39.108.120.239/api/bind
+data:bindname=zfedu&credit=118fad6b0d19442b94924ead72e01bdf&password=123456
+```
 
 返回状态码及消息。
 
@@ -456,16 +459,14 @@ ${root}/api/bind
 #### 地址
 
 ```
-${root}/api/getinfo
+$root/api/getinfo
 ```
 
 #### 参数
 
 ```csharp
-{
-	"credit":"$credit",
-	"type":"$type"//bind
-}
+credit:string
+type:enum //bind,base
 ```
 
 #### 绑定信息
@@ -476,9 +477,10 @@ ${root}/api/getinfo
 
 样例请求:
 
-`url`:http://39.108.120.239/api/getinfo
-
-`data`:type=bind&credit=43c1ce34f16240b0ad92e507065e2ac9
+```
+url:http://39.108.120.239/api/getinfo
+data:type=bind&credit=43c1ce34f16240b0ad92e507065e2ac9
+```
 
 返回状态码及消息
 
@@ -524,9 +526,10 @@ ${root}/api/getinfo
 
 样例请求:
 
-`url`:http://39.108.120.239/api/getinfo
-
-`data`:type=base&credit=43c1ce34f16240b0ad92e507065e2ac9
+```
+url:http://39.108.120.239/api/getinfo
+data:type=base&credit=43c1ce34f16240b0ad92e507065e2ac9
+```
 
 返回状态码及消息
 
@@ -561,16 +564,14 @@ ${root}/api/getinfo
 #### 地址
 
 ```
-${root}/api/shared
+$root/api/shared
 ```
 
 #### 参数
 
 ```csharp
-{
-	"type":"$type",//user
-	"query":"$query"
-}
+type:enum,//user
+query:string
 ```
 
 #### 用户信息
@@ -579,9 +580,10 @@ ${root}/api/shared
 
 样例请求
 
-`url`:http://39.108.120.239/api/shared
-
-`data`:type=user&query=test1
+```
+url:http://39.108.120.239/api/shared
+data:type=user&query=test1
+```
 
 > 在这里`query`指代查询用户的用户名。
 
@@ -620,12 +622,14 @@ ${root}/api/shared
 地址
 
 ```
-${root}/api/time
+$root/api/time
 ```
 
 样例请求
 
-`url`:http://39.108.120.239/api/time
+```
+url:http://39.108.120.239/api/time
+```
 
 返回
 
@@ -650,25 +654,24 @@ ${root}/api/time
 地址
 
 ```
-${root}/api/setinfo
+$root/api/setinfo
 ```
 
 参数
 
 ```csharp
-{
-	"credit":"string",
-	"email":"string",//可选参数
-	"portrait":"string",//可选参数
-	"phone":"string"//可选参数
-}
+credit:string,
+email:string, //可选参数
+portrait:string, //可选参数
+phone:string //可选参数
 ```
 
 样例请求
 
-`url`:http://39.108.120.239/api/setinfo
-
-`data`:credit=118fad6b0d19442b94924ead72e01bdf&email=lalala@cht. com&portrait=AESD532YND632...&phone=1111111111
+```
+url:http://39.108.120.239/api/setinfo
+data:credit=118fad6b0d19442b94924ead72e01bdf&email=lalala@cht. com&portrait=AESD532YND632...&phone=1111111111
+```
 
 返回
 

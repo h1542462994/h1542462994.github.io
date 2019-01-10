@@ -42,19 +42,17 @@ description: ""
 #### 地址
 
 ```
-${root}/api/msgboard
+$root/api/msgboard
 ```
 
 #### 参数
 ```csharp
-{
-	"method":"string"//add,remove,add-comment,remove-comment,update,getnew,getupdateid
-	"credit":"string"//用户凭证
-	"id":"int?"//请求id,int?表示可空参数
-	"time":"string"//时间
-	"content":"string"//请求数据
-	"pic":"byte[]"//图片数据
-}
+"method":enum //add,addcomment,update
+"credit":string //用户凭证
+"id":int? //请求id,int?表示该值可为空
+"time":string //时间
+"content":string //请求数据
+"pic":byte[] //图片数据
 ```
 
 #### 添加留言
@@ -64,11 +62,10 @@ ${root}/api/msgboard
 需要提供的字段:`method`,`credit`,`content`,`pic`[可选]
 
 样例请求:
-
-`url`:http://39.108.120.239/api/msgboard
-
-`data`:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=helloworld
-
+```
+url:http://39.108.120.239/api/msgboard
+data:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=helloworld
+```
 返回状态码及消息:
 
 | code | msg |
@@ -110,11 +107,10 @@ ${root}/api/msgboard
 > `id`表示被添加的留言的id.
 
 样例请求:
-
-`url`:http://39.108.120.239/api/msgboard
-
-`data`:method=addcomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=1&content=haha
-
+```
+url:http://39.108.120.239/api/msgboard
+data:method=addcomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=1&content=haha
+```
 返回状态码及消息:
 
 | code | msg |
@@ -171,10 +167,10 @@ ${root}/api/msgboard
 
 样例请求:
 
-`url`:http://39.108.120.239/api/msgboard
-
-`data`:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:00:00
-
+```
+url:http://39.108.120.239/api/msgboard
+data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:00:00
+```
 
 返回状态码及消息:
 
