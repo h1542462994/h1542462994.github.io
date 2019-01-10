@@ -12,17 +12,39 @@ description: ""
 
 > 当前服务器地址`http://39.108.120.239`
 
-### 文档中包含的方法的接口
+-------
 
-> user:`register`,`register2`,`login`
+#### 系列文档
+
+[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)
+
+`API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)
+
+`工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)
+
+`杂项` [*数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)   [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-provideapi/)
+
+
+`日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)
+
+`想法&开发者提示` [留言板](https://h1542462994.github.io/blog/2019/01/03/aspserver-msgboard/)
 
 -------
 
-### 更新日志
+#### 快速查询
 
-*2019/1/8* 修改密码为需要MD5加密
+[`用户凭证`](#第一部分：用户凭证部分)  [*注册(准备弃用)](#注册)    [注册2](#注册2)   [登录](#登录)  [自动登录](#自动登录)  [修改密码](#修改密码)    [*修改昵称](#修改昵称)    [微精弘快速绑定及登录](#微精弘快速绑定及登录)
 
-*2019/1/9* 添加留言板模块
+[`用户信息`](#第二部分：用户信息部分)
+
+> [`绑定信息`](#2.1绑定)  [精弘_jh](#精弘_jh)    [正方教务_zfedu](#正方教务_zfedu)
+
+> [`获取用户信息`](#2.2获取用户信息)    [绑定信息](#绑定信息)  [用户基础信息](#用户基础信息)
+
+
+> [`公共信息`](#2.3公共信息)   [用户信息](#用户信息)
+
+> [`设置用户信息`](#2,4设置用户信息)
 
 -------
 
@@ -52,7 +74,9 @@ ${root}/api/user
 
 > devicetype 必须指定为`mobile`或`pc`或`web`否则将无法正常访问。
 
-#### [Obsolute]注册【需要提供用户名的版本】
+#### 注册
+
+> *waring:* 该接口准备弃用。
 
 > 当method=`register`跳转至此方法。
 
@@ -95,7 +119,7 @@ ${root}/api/user
 }
 ```
 
-#### 注册【快速版本】
+#### 注册2
 
 > 当method=`register2`时跳转到此方法。
 
@@ -140,7 +164,7 @@ ${root}/api/user
 }
 ```
 
-#### 登录 -update 1/8
+#### 登录
 
 > 当method=`login`时跳转到此方法
 
@@ -264,7 +288,7 @@ ${root}/api/user
 }
 ```
 
-#### [Prepared to move]修改昵称
+#### 修改昵称
 
 > 当method=`changenickname`时跳转到此方法
 
@@ -289,7 +313,7 @@ ${root}/api/user
 | 403 | 自动登录已失效，请重新登录 |
 | 200 | 修改昵称成功 |
 
-#### *[Prepared to obsolute]微精弘快速绑定及登录
+#### 微精弘快速绑定及登录
 
 > 当method=`wejhlogin`时跳转到此方法
 
@@ -332,7 +356,7 @@ ${root}/api/user
 
 ### 第二部分：用户信息部分
 
-### 2.1绑定信息
+### 2.1绑定
 
 #### 地址
 
@@ -353,7 +377,7 @@ ${root}/api/bind
 
 > 已完成的部分:`jh`,`zfedu`
 
-#### 精弘(jh)
+#### 精弘_jh
 
 > 当bindname=`jh`时跳转到此方法
 
@@ -391,7 +415,7 @@ ${root}/api/bind
 }
 ```
 
-#### 正方教务(zfedu)
+#### 正方教务_zfedu
 
 > 需要依赖`jh`，当bindname=`zfedu`时跳转到此方法
 
@@ -427,7 +451,7 @@ ${root}/api/bind
 
 -------------
 
-### 2.2获取信息(指用户信息)
+### 2.2获取用户信息
 
 #### 地址
 
@@ -549,7 +573,7 @@ ${root}/api/shared
 }
 ```
 
-#### 用户信息[用户名，昵称，用户类型，用户头像]
+#### 用户信息
 
 > 当type=`user`时跳转到此方法
 
@@ -587,19 +611,23 @@ ${root}/api/shared
 
 > 当`portrait`为`default::unset`时，表示其没有设置头像，设置头像后，返回一串Base64十六进制字符串。
 
-#### 2.4设置用户信息
-
 #### 获取时间
 
-> `GET`和`POST`方法都可以。
+> 此结构只开放`GET`方法
 
-##### 地址
+> *waring:* 该方法最近将合并到`api.shared::time`。
+
+地址
 
 ```
 ${root}/api/time
 ```
 
-##### 返回
+样例请求
+
+`url`:http://39.108.120.239/api/time
+
+返回
 
 ```csharp
 {
@@ -615,204 +643,45 @@ ${root}/api/time
         "weeklasting":18
     }
 }
+```
 
+#### 2.4设置用户信息
 
-#### 获取课表
+地址
 
-##### 参数
+```
+${root}/api/setinfo
+```
+
+参数
 
 ```csharp
 {
-    "credit":"$credit"
+	"credit":"string",
+	"email":"string",//可选参数
+	"portrait":"string",//可选参数
+	"phone":"string"//可选参数
 }
 ```
 
-> 获取课表是按照服务器时间来获取的，而服务器时间可有`api/time`来获取。
+样例请求
 
-##### 返回
+`url`:http://39.108.120.239/api/setinfo
 
-成功
+`data`:credit=118fad6b0d19442b94924ead72e01bdf&email=lalala@cht. com&portrait=AESD532YND632...&phone=1111111111
 
-```csharp
+返回
+
+```json
 {
-	"code": 200,
-	"msg": "获取课表成功。",
-	"data": [{
-		"id": 0,
-		"courseid": "19832",
-		"year": 2018,
-		"term": 3,
-		"name": "线性代数",
-		"college": "",
-		"type": "考查",
-		"teacher": "金建国",
-		"campus": "朝晖校区",
-		"location": "教404",
-		"weekrange": "1-16",
-		"dayofweek": "1",
-		"timerange": "1-2",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "6D910A62D3DC31D9E053A11310ACD644",
-		"year": 2018,
-		"term": 3,
-		"name": "大学英语",
-		"college": "",
-		"type": "考试",
-		"teacher": "阮晓亮",
-		"campus": "朝晖校区",
-		"location": "文605",
-		"weekrange": "1-16",
-		"dayofweek": "1",
-		"timerange": "3-4",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19815",
-		"year": 2018,
-		"term": 3,
-		"name": "高等数学Ⅰ",
-		"college": "",
-		"type": "考试",
-		"teacher": "练晓鹏",
-		"campus": "朝晖校区",
-		"location": "教201",
-		"weekrange": "1-16",
-		"dayofweek": "1",
-		"timerange": "6-7",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19818",
-		"year": 2018,
-		"term": 3,
-		"name": "程序设计基础C",
-		"college": "",
-		"type": "考试",
-		"teacher": "潘清",
-		"campus": "朝晖校区",
-		"location": "教204",
-		"weekrange": "1-16",
-		"dayofweek": "2",
-		"timerange": "1-2",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19822",
-		"year": 2018,
-		"term": 3,
-		"name": "人体健康与疾病",
-		"college": "",
-		"type": "未安排",
-		"teacher": "陈艳",
-		"campus": "朝晖校区",
-		"location": "教301",
-		"weekrange": "1-16",
-		"dayofweek": "2",
-		"timerange": "10-11",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19832",
-		"year": 2018,
-		"term": 3,
-		"name": "中国近现代史纲要",
-		"college": "",
-		"type": "考查",
-		"teacher": "颜桂珍",
-		"campus": "朝晖校区",
-		"location": "教404",
-		"weekrange": "1-16",
-		"dayofweek": "3",
-		"timerange": "1-2",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19815",
-		"year": 2018,
-		"term": 3,
-		"name": "高等数学Ⅰ",
-		"college": "",
-		"type": "考试",
-		"teacher": "练晓鹏",
-		"campus": "朝晖校区",
-		"location": "教201",
-		"weekrange": "1-16",
-		"dayofweek": "3",
-		"timerange": "3-4",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "6D910A62D3DC31D9E053A11310ACD644",
-		"year": 2018,
-		"term": 3,
-		"name": "大学英语",
-		"college": "",
-		"type": "考试",
-		"teacher": "阮晓亮",
-		"campus": "朝晖校区",
-		"location": "文605",
-		"weekrange": "1-16",
-		"dayofweek": "3",
-		"timerange": "6-7",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19827",
-		"year": 2018,
-		"term": 3,
-		"name": "程序设计基础C",
-		"college": "",
-		"type": "考试",
-		"teacher": "潘清",
-		"campus": "朝晖校区",
-		"location": "教307",
-		"weekrange": "1-16",
-		"dayofweek": "4",
-		"timerange": "3-4",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": null,
-		"year": 2018,
-		"term": 3,
-		"name": "体育",
-		"college": "",
-		"type": "未安排",
-		"teacher": "王德明",
-		"campus": "朝晖校区",
-		"location": "未排地点",
-		"weekrange": "1-16",
-		"dayofweek": "4",
-		"timerange": "6-7",
-		"classscore": 2,
-		"classhour": 32
-	}, {
-		"id": 0,
-		"courseid": "19815",
-		"year": 2018,
-		"term": 3,
-		"name": "高等数学Ⅰ",
-		"college": "",
-		"type": "考试",
-		"teacher": "练晓鹏",
-		"campus": "朝晖校区",
-		"location": "教201",
-		"weekrange": "1-8",
-		"dayofweek": "5",
-		"timerange": "6-7",
-		"classscore": 2,
-		"classhour": 32
-	}]
+    "code":200,
+    "msg":"修改信息成功",
+    "data":{
+		"e_email":2,
+		"e_portrait":2,
+		"e_phone":2
+    }
 }
 ```
+
+> 在这里返回数据若为`2`表示修改成功，若为`1`表示修改失败，若为`0`表示未修改。

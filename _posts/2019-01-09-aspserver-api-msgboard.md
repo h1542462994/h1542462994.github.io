@@ -22,7 +22,8 @@ description: ""
 
 `工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)
 
-`杂项` [*数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)
+`杂项` [*数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)    [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-provideapi/)
+
 
 `日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)
 
@@ -32,7 +33,7 @@ description: ""
 
 #### 快速查询
 
-[`留言板`](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/#留言板)  [添加留言](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/#添加留言)
+[`留言板`](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/#留言板)  [添加留言](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/#添加留言)    [添加评论](#添加评论)  [更新](#更新)
 
 -------
 
@@ -49,8 +50,8 @@ ${root}/api/msgboard
 {
 	"method":"string"//add,remove,add-comment,remove-comment,update,getnew,getupdateid
 	"credit":"string"//用户凭证
-	"id":"int"//请求id
-	"subid":"int"//副id
+	"id":"int?"//请求id,int?表示可空参数
+	"time":"string"//时间
 	"content":"string"//请求数据
 	"pic":"byte[]"//图片数据
 }
@@ -66,14 +67,158 @@ ${root}/api/msgboard
 
 `url`:http://39.108.120.239/api/msgboard
 
-`data`:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=hello%32world
+`data`:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=helloworld
 
 返回状态码及消息:
 
 | code | msg |
 | :---: | --- |
 | 400 | 无效的请求 |
+| 403 | 凭证为空 |
+| 403 | 无效的凭证 |
+| 403 | 留言内容为空 |
+| 200 | 添加留言成功 |
 
 成功返回数据
 
+```csharp
+{
+	"code": 200,
+	"msg": "添加成功",
+	"data": {
+		"time": "2019/1/10 9:22:24",
+		"msg": {
+			"id": 16,
+			"username": "10086",
+			"time": "2019/1/10 9:22:24",
+			"istop": 0,
+			"islocked": 0,
+			"content": "helloworld",
+			"pic": null,
+			"comments": []
+		}
+	}
+}
+```
+
+#### 添加评论
+
+> 当method=`addcomment`时跳转到此方法
+
+需要提供的字段:`method`,`credit`,`id`,`content`
+
+> `id`表示被添加的留言的id.
+
+样例请求:
+
+`url`:http://39.108.120.239/api/msgboard
+
+`data`:method=addcomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=1&content=haha
+
+返回状态码及消息:
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+| 403 | 凭证为空 |
+| 403 | 无效的凭证 |
+| 403 | 评论内容为空 |
+| 200 | 添加评论成功 |
+
+成功返回数据
+
+```csharp
+{
+	"code": 200,
+	"msg": "添加评论成功",
+	"data": {
+		"id": 1,
+		"username": "10086",
+		"time": "2019/1/8 15:12:56",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": [{
+			"username": "10086",
+			"time": "2019/1/9 22:47:13",
+			"content": "haha"
+		}, {
+			"username": "10086",
+			"time": "2019/1/9 22:55:09",
+			"content": "haha"
+		}, {
+			"username": "10086",
+			"time": "2019/1/10 9:27:24",
+			"content": "haha"
+		}]
+	}
+}
+```
+
+#### 更新
+
+> 当method=`update`时跳转到此方法
+
+需要提供的字段:`method`,`credit`,`time`
+
+> 因缓存原因，只在最后200条记录中查询
+
+> *mark:* `time`表示最后一次更新的时间，而不是当前的时间。
+
+样例请求:
+
+`url`:http://39.108.120.239/api/msgboard
+
+`data`:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:00:00
+
+
+返回状态码及消息:
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+| 403 | 凭证为空 |
+| 403 | 无效的凭证 |
+| 403 | 时间格式不正确 |
+| 200 | 获取留言成功 |
+
+成功返回数据
+
+```csharp
+{
+	"code": 200,
+	"msg": "获取留言成功",
+	"data": [{
+		"id": 2,
+		"username": "10086",
+		"time": "2019/1/8 15:13:04",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": []
+	}, {
+		"id": 1,
+		"username": "10086",
+		"time": "2019/1/8 15:12:56",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": [{
+			"username": "10086",
+			"time": "2019/1/9 22:47:13",
+			"content": "haha"
+		}, {
+			"username": "10086",
+			"time": "2019/1/9 22:55:09",
+			"content": "haha"
+		}, {
+			"username": "10086",
+			"time": "2019/1/10 9:27:24",
+			"content": "haha"
+		}]
+	}]
+}
 ```

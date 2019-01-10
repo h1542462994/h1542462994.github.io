@@ -10,22 +10,21 @@ description: ""
 
 ## wejh.platform.server开发文档
 
------
+-------
 
-### 目录
+#### 系列文档
 
-[API文档](https://h1542462994.github.io/children/2018/12/23/aspserver-api/)
+[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)
 
-[部署](https://h1542462994.github.io/children/2018/12/23/aspserver-deploy/)
+`API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)
 
-> 如何和aspserver进行交互。
+`工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)
 
-[开发进展](https://h1542462994.github.io/children/2018/12/23/aspserver-progress/)
+`杂项` [*数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)    [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-provideapi/)
 
-[数据库模型及交互](https://h1542462994.github.io/children/2018/12/23/aspserver-mysql/)
 
-[第三方平台提供的API文档](https://h1542462994.github.io/children/2018/12/23/aspserver-provideapi/)
+`日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)
 
-### 大轮子和小轮子
+`想法&开发者提示` [留言板](https://h1542462994.github.io/blog/2019/01/03/aspserver-msgboard/)
 
-[MsgBoard](https://h1542462994.github.io/childern/2019/01/03/aspserver-msgboard/)
+-------
