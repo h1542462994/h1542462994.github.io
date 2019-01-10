@@ -12,7 +12,7 @@ description: ""
 
 #### 系列文档
 
-[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)
+[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)
 
 `API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)
 
@@ -28,6 +28,8 @@ description: ""
 ## 部署服务器
 
 #### On Unbuntu 18.04
+
+> *error:* 请跳过此部分内容，因为该项目开发者(cht)无法解决在linux系统上的部署问题。
 
 注册Microsoft key和产品仓储
 

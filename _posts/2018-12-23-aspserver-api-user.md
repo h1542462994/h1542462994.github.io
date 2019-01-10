@@ -2,7 +2,7 @@
 layout: post
 title: "[Project]tty全平台后端(正在开发)-API文档-用户部分"
 create: 2018-12-23
-update: 2018-12-23
+update: 2019-01-10
 categories: blog
 tags: [Project]
 description: ""
@@ -16,7 +16,7 @@ description: ""
 
 #### 系列文档
 
-[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)
+[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)
 
 `API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)
 
@@ -33,7 +33,9 @@ description: ""
 
 #### 快速查询
 
-[`用户凭证`](#第一部分：用户凭证部分)  [*注册(准备弃用)](#注册)    [注册2](#注册2)   [登录](#登录)  [自动登录](#自动登录)  [修改密码](#修改密码)    [*修改昵称](#修改昵称)    [微精弘快速绑定及登录](#微精弘快速绑定及登录)
+[`用户凭证`](#第一部分：用户凭证部分)  
+
+> [注册(准备弃用)](#注册)    [注册2](#注册2)   [登录](#登录)  [自动登录](#自动登录)  [修改密码](#修改密码)    [修改昵称](#修改昵称)    [微精弘快速绑定及登录](#微精弘快速绑定及登录)
 
 [`用户信息`](#第二部分：用户信息部分)
 
@@ -559,7 +561,7 @@ data:type=base&credit=43c1ce34f16240b0ad92e507065e2ac9
 
 > 当`portrait`为`default::unset`时，表示其没有设置头像，设置头像后，返回一串Base64十六进制字符串。
 
-### 2.3公共信息
+### 2.3获取公共信息
 
 #### 地址
 
@@ -574,7 +576,7 @@ type:enum,//user
 query:string
 ```
 
-#### 用户信息
+#### 用户公共信息
 
 > 当type=`user`时跳转到此方法
 
@@ -607,6 +609,42 @@ data:type=user&query=test1
 		"usertype":"COMMON","portrait":"default::unset","premission_msgboard":0
 	}
 }
+```
+
+> 这是用户公开的信息，这个和`user.getinfo::base`会少一些字段。
+
+> 当`portrait`为`default::unset`时，表示其没有设置头像，设置头像后，返回一串Base64十六进制字符串。
+
+#### 用户公共信息MD5
+
+> 当type=`usermd5`时跳转到此方法
+
+样例请求
+
+```
+url:http://39.108.120.239/api/shared
+data:type=usermd5&query=test1
+```
+
+> 在这里`query`指代查询用户的用户名。
+
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的访问 |
+| 403 | 不存在该用户 |
+| 200 | 获取信息成功 |
+
+成功返回数据
+
+```csharp
+{
+	"code":200,
+	"msg":"获取信息成功",
+	"data":"1B3E45BE5A40AA2881C8D309C41A95C7"
+}
+	
 ```
 
 > 这是用户公开的信息，这个和`user.getinfo::base`会少一些字段。

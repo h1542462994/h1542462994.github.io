@@ -8,7 +8,7 @@ tags: [Project]
 description: ""
 ---
 
-[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)
+[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)
 
 `API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)
 
@@ -22,53 +22,114 @@ description: ""
 
 -------
 
-#### 想法
+## 留言板
 
-原先的版本没有账号系统，而且没有自定义头像的功能。
+> 这篇文档存粹是为了随便写点东西，技术文档请看API。
 
-#### 架构
+### 想法
+
+原先的版本没有账号系统，而且没有自定义头像的功能。所以在账号系统的架构上想添加留言的功能，并做到能够添加评论。
+
+> *mark*:原先的版本并不是我做的。
+
+### 架构
 
 没有分类系统，每个用户都可以新建一个话题，其他人可以在底下评论。
 
+> `jschema`
+
 ```csharp
 {
-    "id":"$id:int",
+    "id":"int",
+# delete description:简化信息
     "user":{
-        "username":"$username:string",
-        "nickname":"$nickname:string",
-        "type":"$type:int"//0普通用户，1VIP用户。
+        "username":"string",
+        "nickname":"string",
+        "type":"enumint"//0普通用户，1VIP用户。
     },
+# enddelete
+# add
+    "username":"string"
+# endadd
+# delete
     "meta":{
         "portrait":"$portrait:string",
         "istop":"$istop:boolean",//是否置顶。
         "islocked":"$islocked:boolean",//是否已经锁定。
         "time":"$time:string"//这里指更新的日期和时间。
     },
-    "content":"$content:string",
+# enddelete
+# add
+    "time":"string",
+    "istop":"int",//是否置顶
+    "islocked":"int",//是否锁定评论
+# endadd
+    "content":"string",
+# delete
     "comments":[{
-        "id":"$id:int",
+        "id":"int",
         "user":{
-            "username":"$username:string",
-            "nickname":"$nickname:string",
-            "type":"$type:int"
+            "username":"string",
+            "nickname":"string",
+            "type":"int"
         },
-        "time":"$time:string",
-        "content":"$content:string",
+        "time":"string",
+        "content":"string",
     }]
+# enddelete
+# add
+    "commentidlast":"int",
+    [SqlSerizable:jsonstring]
+    "comments":[{
+        "id":"int",//添加这个字段是为了后续删除评论。
+        "username":"string",
+        "time":"string",
+        "content":"string"
+    }]
+# endadd
 }
 ```
 
-数据库
+> *mark:* ①其实做了分类系统就更像一个论坛了。②这样的架构评论没有形成树状架构，但限于开发者本人知识，暂不开发。③上述架构还有待完善，因为需要考虑到将用户信息和留言内容分离。
+
+### 数据库
+
+> 更新后的架构请转到[MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/#留言系统模块)，下文部分并不会经常更新。
 
 ```csharp
-username:string
-time:datetime
-istop:int
-islocked:int
-comments:string ::jsonof array[id,username,time,content]
+{
+    "name":"msgboard",
+    "table":
+    {
+        "id":"int not null AUTO_INCREMENT",
+        "username":"text not null",
+        "time":"text not null",
+        "istop":"int not null",
+        "islocked":"int not null",
+        "content":"text",
+        "commentlastid":"int not null",
+        "comments":"text",
+        "pic":"MediumBlob"
+    },
+    "primarykey":"id"    
+}
 ```
 
-聊天系统
+### 帮助文档
+
+> 这一部分会告诉你如何优雅实现留言板的功能。
+
+1. 获取留言信息后，用户信息不完整，这个可以在本地写一个缓存，并通过[获取用户公共信息API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#用户公共信息)来获取。
+
+2. 接着1，还提供了[获取用户公共信息MD5码的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#用户公共信息MD5))。
+
+3. 想要设置用户头像，请转到[设置用户信息的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#2.4设置用户信息)。
+
+> 设置用户头像还没有测试过。
+
+## 聊天系统
+
+> 这部分估计很久才开工，这里只是冲个数。
 
 ```json
 {
