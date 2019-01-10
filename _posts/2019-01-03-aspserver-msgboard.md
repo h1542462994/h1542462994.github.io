@@ -121,9 +121,9 @@ description: ""
 
 1. 获取留言信息后，用户信息不完整，这个可以在本地写一个缓存，并通过[获取用户公共信息API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#用户公共信息)来获取。
 
-2. 接着1，还提供了[获取用户公共信息MD5码的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#用户公共信息MD5))。
+2. 接着1，还提供了[获取用户公共信息MD5码的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#用户公共信息md5))。
 
-3. 想要设置用户头像，请转到[设置用户信息的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#2.4设置用户信息)。
+3. 想要设置用户头像，请转到[设置用户信息的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/#24设置用户信息)。
 
 > 设置用户头像还没有测试过。
 
