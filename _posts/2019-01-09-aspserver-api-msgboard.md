@@ -132,24 +132,27 @@ ${root}/api/msgboard
 	"code": 200,
 	"msg": "添加评论成功",
 	"data": {
-		"id": 1,
+		"id": 2,
 		"username": "10086",
-		"time": "2019/1/8 15:12:56",
+		"time": "2019/1/8 15:13:04",
 		"istop": 0,
 		"islocked": 0,
 		"content": "helloworld",
 		"pic": null,
 		"comments": [{
+			"id": 1,
 			"username": "10086",
-			"time": "2019/1/9 22:47:13",
+			"time": "2019/1/10 12:50:56",
 			"content": "haha"
 		}, {
+			"id": 2,
 			"username": "10086",
-			"time": "2019/1/9 22:55:09",
+			"time": "2019/1/10 12:51:06",
 			"content": "haha"
 		}, {
+			"id": 3,
 			"username": "10086",
-			"time": "2019/1/10 9:27:24",
+			"time": "2019/1/10 12:51:18",
 			"content": "haha"
 		}]
 	}
@@ -199,24 +202,27 @@ ${root}/api/msgboard
 		"pic": null,
 		"comments": []
 	}, {
-		"id": 1,
+		"id": 2,
 		"username": "10086",
-		"time": "2019/1/8 15:12:56",
+		"time": "2019/1/8 15:13:04",
 		"istop": 0,
 		"islocked": 0,
 		"content": "helloworld",
 		"pic": null,
 		"comments": [{
+			"id": 1,
 			"username": "10086",
-			"time": "2019/1/9 22:47:13",
+			"time": "2019/1/10 12:50:56",
 			"content": "haha"
 		}, {
+			"id": 2,
 			"username": "10086",
-			"time": "2019/1/9 22:55:09",
+			"time": "2019/1/10 12:51:06",
 			"content": "haha"
 		}, {
+			"id": 3,
 			"username": "10086",
-			"time": "2019/1/10 9:27:24",
+			"time": "2019/1/10 12:51:18",
 			"content": "haha"
 		}]
 	}]

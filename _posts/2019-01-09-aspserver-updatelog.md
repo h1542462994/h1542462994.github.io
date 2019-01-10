@@ -49,6 +49,8 @@ description: ""
 
 *2019/1/9* `msgboard` 添加留言板模块
 
+*2019/1/10* `msgboard` 留言评论添加id字段
+
 ### TODO
 
 [`link_1`] `user` 能够在寒暑假也能获取时间

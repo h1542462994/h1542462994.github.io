@@ -217,6 +217,7 @@ create table userinfo(
         "istop":"int not null",
         "islocked":"int not null",
         "content":"text",
+        "commentlastid":"int not null",
         "comments":"text",
         "pic":"MediumBlob"
     },
@@ -233,6 +234,7 @@ create table msgboard(
     time text not null,
     istop int not null,
     islocked int not null,
+    commentlastid int not null,
     content text,
     comments text,
     pic MediumBlob,
