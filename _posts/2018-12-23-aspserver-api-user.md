@@ -8,28 +8,20 @@ tags: [Project]
 description: ""
 ---
 
-## API文档
+-------
+
+[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)<br/>
+`API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)<br/>
+`工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)<br/>
+`杂项` [&数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)    [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-providedapi/)<br/>
+`日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)<br/>
+`想法&开发者提示` [留言板](https://h1542462994.github.io/blog/2019/01/03/aspserver-msgboard/)    [开发规范](https://h1542462994.github.io/blog/2019/01/11/aspserver-regular/)  
+
+-------
+
+## API文档-用户部分
 
 > 当前服务器地址`http://39.108.120.239`
-
--------
-
-#### 系列文档
-
-[主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)
-
-`API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)
-
-`工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)
-
-`杂项` [&数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)   [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-providedapi/)
-
-
-`日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)
-
-`想法&开发者提示` [留言板](https://h1542462994.github.io/blog/2019/01/03/aspserver-msgboard/)
-
--------
 
 #### 快速查询
 
@@ -711,7 +703,15 @@ url:http://39.108.120.239/api/setinfo
 data:credit=118fad6b0d19442b94924ead72e01bdf&email=lalala@cht. com&portrait=AESD532YND632...&phone=1111111111
 ```
 
-返回
+返回状态码及消息
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+| 403 | 自动登录已失效，请重新登录 |
+| 200 | 修改信息成功 |
+
+成功返回数据
 
 ```json
 {
