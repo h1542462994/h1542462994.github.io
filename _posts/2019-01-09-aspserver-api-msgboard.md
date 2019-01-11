@@ -180,39 +180,42 @@ data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:
 {
 	"code": 200,
 	"msg": "获取留言成功",
-	"data": [{
-		"id": 2,
-		"username": "10086",
-		"time": "2019/1/8 15:13:04",
-		"istop": 0,
-		"islocked": 0,
-		"content": "helloworld",
-		"pic": null,
-		"comments": []
-	}, {
-		"id": 2,
-		"username": "10086",
-		"time": "2019/1/8 15:13:04",
-		"istop": 0,
-		"islocked": 0,
-		"content": "helloworld",
-		"pic": null,
-		"comments": [{
-			"id": 1,
+	"data": {
+		"time": "2019/1/11 23:41:44",
+		"content": [{
+			"id": 3,
 			"username": "10086",
-			"time": "2019/1/10 12:50:56",
-			"content": "haha"
+			"time": "2019/1/8 15:13:05",
+			"istop": 0,
+			"islocked": 0,
+			"content": "helloworld",
+			"pic": null,
+			"comments": []
 		}, {
 			"id": 2,
 			"username": "10086",
-			"time": "2019/1/10 12:51:06",
-			"content": "haha"
-		}, {
-			"id": 3,
-			"username": "10086",
-			"time": "2019/1/10 12:51:18",
-			"content": "haha"
+			"time": "2019/1/8 15:13:04",
+			"istop": 0,
+			"islocked": 0,
+			"content": "helloworld",
+			"pic": null,
+			"comments": [{
+				"id": 1,
+				"username": "10086",
+				"time": "2019/1/10 12:50:56",
+				"content": "haha"
+			}, {
+				"id": 2,
+				"username": "10086",
+				"time": "2019/1/10 12:51:06",
+				"content": "haha"
+			}, {
+				"id": 3,
+				"username": "10086",
+				"time": "2019/1/10 12:51:18",
+				"content": "haha"
+			}]
 		}]
-	}]
+	}
 }
 ```
