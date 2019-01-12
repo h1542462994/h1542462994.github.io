@@ -28,19 +28,26 @@ description: ""
     <!--第一节课-->
     <tr>
         <th>1</th>
-        <td align="center" rowspan="2">英语<br/>子良A414</td>
-        <td align="center" rowspan="2">*大学物理<br/>教202</td>
+        <td align="center" valign="center" rowspan="2">英语<br/>子良A414</td>
+        <td align="center" valign="center" rowspan="2">*大学物理<br/>教202</td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>2</th>
     </tr>
     <tr>
         <th>3</th>
-        <td></td>
+        <td align="center" valign="center" rowspan="2"></td>
         <td align="center" rowspan="2">C++<br>教801</td>
         <td align="center" rowspan="2">高等数学<br/>子良A221</td>
-        <td></td>
+        <td align="center" valign="center" rowspan="2"></td>
         <td align="center" rowspan="2">C++<br>教801</td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>4</th>
@@ -55,17 +62,21 @@ description: ""
         <td align="center" rowspan="2">英语<br/>子良A414</td>
         <td align="center" rowspan="2">大学物理<br/>教202</td>
         <td align="center" rowspan="2">高等数学<br/>子良A221</td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>7</th>
     </tr>
     <tr>
         <th>8</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
         <td align="center" rowspan="2">离散数学<br/>子良A531</td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>9</th>
@@ -73,11 +84,24 @@ description: ""
     <tr>
         <th>10</th>
         <td align="center" rowspan="3">思修<br/>子良A315</td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
+        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>11</th>
     </tr>
     <tr>
         <th>12</th>
+        <td rowspan="0"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
     </tr>
 </table>
