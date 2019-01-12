@@ -15,7 +15,7 @@ description: ""
 -------
 
 [主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)<br/>
-`API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)<br/>
+`API系列` [API-映射表](https://h1542462994.github.io/blog/2019/01/12/aspserver-apimap) [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)<br/>
 `工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)<br/>
 `杂项` [&数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)    [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-providedapi/)<br/>
 `日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)<br/>
@@ -75,17 +75,15 @@ data:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=helloworld
 	"code": 200,
 	"msg": "添加成功",
 	"data": {
+		"id": 16,
+		"username": "10086",
+		"mark":0,
 		"time": "2019/1/10 9:22:24",
-		"msg": {
-			"id": 16,
-			"username": "10086",
-			"time": "2019/1/10 9:22:24",
-			"istop": 0,
-			"islocked": 0,
-			"content": "helloworld",
-			"pic": null,
-			"comments": []
-		}
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": []
 	}
 }
 ```
@@ -122,6 +120,7 @@ data:method=addcomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=1&content=haha
 	"data": {
 		"id": 2,
 		"username": "10086",
+		"mark":0,
 		"time": "2019/1/8 15:13:04",
 		"istop": 0,
 		"islocked": 0,
@@ -186,6 +185,7 @@ data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:
 			"id": 3,
 			"username": "10086",
 			"time": "2019/1/8 15:13:05",
+			"mark":0,
 			"istop": 0,
 			"islocked": 0,
 			"content": "helloworld",
@@ -194,6 +194,7 @@ data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:
 		}, {
 			"id": 2,
 			"username": "10086",
+			"mark":0,
 			"time": "2019/1/8 15:13:04",
 			"istop": 0,
 			"islocked": 0,
@@ -219,3 +220,6 @@ data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:
 	}
 }
 ```
+
+#### 删除
+

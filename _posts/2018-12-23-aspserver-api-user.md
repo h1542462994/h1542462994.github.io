@@ -11,7 +11,7 @@ description: ""
 -------
 
 [主页](https://h1542462994.github.io/blog/2018/12/23/aspserver-index/)    [项目地址](https://github.com/TropicalTeamYard/tty.platform.aspserver)<br/>
-`API系列` [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)<br/>
+`API系列` [API-映射表](https://h1542462994.github.io/blog/2019/01/12/aspserver-apimap) [API文档-用户部分](https://h1542462994.github.io/blog/2018/12/23/aspserver-api-user/)  [API文档-留言板](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-msgboard/)   [API文档-微精弘](https://h1542462994.github.io/blog/2019/01/09/aspserver-api-wejh/)<br/>
 `工程与部署` [MySql文档](https://h1542462994.github.io/blog/2018/12/23/aspserver-mysql/)  [部署](https://h1542462994.github.io/blog/2018/12/23/aspserver-deploy/)<br/>
 `杂项` [&数据(调试用)](https://h1542462994.github.io/blog/2018/12/23/aspserver-data/)    [第三方提供的API](https://h1542462994.github.io/blog/2018/12/23/aspserver-providedapi/)<br/>
 `日志` [更新日志](https://h1542462994.github.io/blog/2019/01/09/aspserver-updatelog/)<br/>
@@ -310,11 +310,22 @@ data:method=changenickname&credit=118fad6b0d19442b94924ead72e01bdf&nickname=test
 | 403 | 自动登录已失效，请重新登录 |
 | 200 | 修改昵称成功 |
 
+成功返回数据
+
+```csharp
+{
+	"code":200,
+	"msg":"修改昵称成功"
+}
+```
+
 #### 微精弘快速绑定及登录
 
 > 当method=`wejhlogin`时跳转到此方法
 
-> *waring:* 因接口分离导致的复杂性，准备将其弃用，并合并到`login`方法.
+> ~~*waring:* 因接口分离导致的复杂性，准备将其弃用，并合并到`login`方法.~~
+
+> *error* :已弃用
 
 需要提供的字段
 
@@ -516,6 +527,8 @@ data:type=bind&credit=43c1ce34f16240b0ad92e507065e2ac9
 
 > 当type=`base`时跳转到此方法
 
+> *update:* 添加了permission_msgboard字段
+
 需要提供的字段: `type`,`credit`
 
 样例请求:
@@ -546,7 +559,8 @@ data:type=base&credit=43c1ce34f16240b0ad92e507065e2ac9
 		"usertype": "COMMON",
 		"portrait": "default::unset",
 		"email": "",
-		"phone": ""
+		"phone": "",
+		"permission_msgboard":0 //0表示普通用户，1表示管理员用户，2表示超级管理员用户
 	}
 }
 ```
@@ -572,14 +586,16 @@ query:string
 
 > 当type=`user`时跳转到此方法
 
+> *update:* 改为获取集合成员
+
 样例请求
 
 ```
 url:http://39.108.120.239/api/shared
-data:type=user&query=test1
+data:type=user&query=['10086','10087','10088']
 ```
 
-> 在这里`query`指代查询用户的用户名。
+> 在这里`query`指代查询用户的用户名的集合。例如`['10086','10087','10088'`
 
 返回状态码及消息
 
@@ -595,11 +611,12 @@ data:type=user&query=test1
 {
 	"code":200,
 	"msg":"获取信息成功",
-	"data":{
+	"data":[{
 		"username":"10086",
 		"nickname":"test1",
-		"usertype":"COMMON","portrait":"default::unset","premission_msgboard":0
-	}
+		"usertype":"COMMON",
+		"portrait":"default::unset"
+	}]
 }
 ```
 
@@ -611,11 +628,13 @@ data:type=user&query=test1
 
 > 当type=`usermd5`时跳转到此方法
 
+> *update:* 改为获取集合成员
+
 样例请求
 
 ```
 url:http://39.108.120.239/api/shared
-data:type=usermd5&query=test1
+data:type=usermd5&query=['10086','10087','10088']
 ```
 
 > 在这里`query`指代查询用户的用户名。
@@ -634,9 +653,10 @@ data:type=usermd5&query=test1
 {
 	"code":200,
 	"msg":"获取信息成功",
-	"data":"1B3E45BE5A40AA2881C8D309C41A95C7"
-}
-	
+	"data":[{
+		"username":"10086","md5":"CCC8263BE1056CC88382FBD983E0B674"
+		}]
+	}
 ```
 
 > 这是用户公开的信息，这个和`user.getinfo::base`会少一些字段。
@@ -679,7 +699,7 @@ url:http://39.108.120.239/api/time
 }
 ```
 
-#### 2.4设置用户信息
+### 2.4设置用户信息
 
 地址
 
@@ -713,7 +733,7 @@ data:credit=118fad6b0d19442b94924ead72e01bdf&email=lalala@cht. com&portrait=AESD
 
 成功返回数据
 
-```json
+```csharp
 {
     "code":200,
     "msg":"修改信息成功",
