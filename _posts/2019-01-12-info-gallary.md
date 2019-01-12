@@ -22,16 +22,12 @@ description: ""
         <th>周三</th>
         <th>周四</th>
         <th>周五</th>
-        <th>周六</th>
-        <th>周日</th>
     </tr>
     <!--第一节课-->
     <tr>
         <th>1</th>
         <td align="center" valign="center" rowspan="2">英语<br/>子良A414</td>
         <td align="center" valign="center" rowspan="2">*大学物理<br/>教202</td>
-        <td align="center" valign="center" rowspan="2"></td>
-        <td align="center" valign="center" rowspan="2"></td>
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" valign="center" rowspan="2"></td>
@@ -46,14 +42,19 @@ description: ""
         <td align="center" rowspan="2">高等数学<br/>子良A221</td>
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" rowspan="2">C++<br>教801</td>
-        <td align="center" valign="center" rowspan="2"></td>
-        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>4</th>
     </tr>
     <tr>
         <th>5</th>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
+        <td align="center" valign="center"></td>
     </tr>
     <tr>
         <th>6</th>
@@ -62,8 +63,6 @@ description: ""
         <td align="center" rowspan="2">英语<br/>子良A414</td>
         <td align="center" rowspan="2">大学物理<br/>教202</td>
         <td align="center" rowspan="2">高等数学<br/>子良A221</td>
-        <td align="center" valign="center" rowspan="2"></td>
-        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>7</th>
@@ -75,8 +74,6 @@ description: ""
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" rowspan="2">离散数学<br/>子良A531</td>
-        <td align="center" valign="center" rowspan="2"></td>
-        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>9</th>
@@ -88,8 +85,6 @@ description: ""
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" valign="center" rowspan="2"></td>
         <td align="center" valign="center" rowspan="2"></td>
-        <td align="center" valign="center" rowspan="2"></td>
-        <td align="center" valign="center" rowspan="2"></td>
     </tr>
     <tr>
         <th>11</th>
@@ -97,8 +92,6 @@ description: ""
     <tr>
         <th>12</th>
         <td rowspan="0"></td>
-        <td align="center" valign="center"></td>
-        <td align="center" valign="center"></td>
         <td align="center" valign="center"></td>
         <td align="center" valign="center"></td>
         <td align="center" valign="center"></td>
