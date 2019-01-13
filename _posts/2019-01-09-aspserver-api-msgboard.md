@@ -281,7 +281,7 @@ data:method=change&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19&content=hello
 | 403 | 留言内容为空 |
 | 403 | 该留言不存在 |
 | 403 | 权限不够 |
-| 200 | 删除留言成功 |
+| 200 | 修改留言成功 |
 
 成功返回消息
 
@@ -302,3 +302,39 @@ data:method=change&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19&content=hello
 	}
 }
 ```
+
+#### 删除评论
+
+> 当method=`delete`时跳转到此方法
+
+需要提供的字段:`method`,`credit`,`id`,`subid`
+
+样例请求
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=deletecomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19&subid=5
+```
+
+> *mark:* 只有*爸爸*才能够删除*儿子*的留言，当然，也可以删除自己的留言。
+
+返回状态码及消息:
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+| 403 | 凭证为空 |
+| 403 | 无效的凭证 |
+| 403 | 该留言不存在 |
+| 403 | 该留言已删除 |
+| 200 | 修改留言成功 |
+
+成功返回消息
+
+```csharp
+{
+	"code":200,
+	"msg":"删除留言成功"
+}
+```
+

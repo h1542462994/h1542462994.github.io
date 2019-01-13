@@ -241,3 +241,163 @@ data:credit=118fad6b0d19442b94924ead72e01bdf&email=lalala@cht. com&portrait=AESD
     }
 }
 ```
+
+### 留言板
+
+#### 添加留言
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=add&credit=43c1ce34f16240b0ad92e507065e2ac9&content=helloworld
+```
+
+```csharp
+{
+	"code": 200,
+	"msg": "添加成功",
+	"data": {
+		"id": 16,
+		"username": "10086",
+		"mark":0,
+		"time": "2019/1/10 9:22:24",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": []
+	}
+}
+```
+
+#### 添加评论
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=addcomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=1&content=haha
+```
+
+```csharp
+{
+	"code": 200,
+	"msg": "添加评论成功",
+	"data": {
+		"id": 2,
+		"username": "10086",
+		"mark":0,
+		"time": "2019/1/8 15:13:04",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": [{
+			"id": 1,
+			"username": "10086",
+			"time": "2019/1/10 12:50:56",
+			"content": "haha"
+		}, {
+			"id": 2,
+			"username": "10086",
+			"time": "2019/1/10 12:51:06",
+			"content": "haha"
+		}, {
+			"id": 3,
+			"username": "10086",
+			"time": "2019/1/10 12:51:18",
+			"content": "haha"
+		}]
+	}
+}
+```
+
+#### 更新
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:00:00
+```
+
+```csharp
+{
+	"code": 200,
+	"msg": "获取留言成功",
+	"data": {
+		"time": "2019/1/11 23:41:44",
+		"content": [{
+			"id": 3,
+			"username": "10086",
+			"time": "2019/1/8 15:13:05",
+			"mark":0,
+			"istop": 0,
+			"islocked": 0,
+			"content": "helloworld",
+			"pic": null,
+			"comments": []
+		}, {
+			"id": 2,
+			"username": "10086",
+			"mark":0,
+			"time": "2019/1/8 15:13:04",
+			"istop": 0,
+			"islocked": 0,
+			"content": "helloworld",
+			"pic": null,
+			"comments": [{
+				"id": 1,
+				"username": "10086",
+				"time": "2019/1/10 12:50:56",
+				"content": "haha"
+			}, {
+				"id": 2,
+				"username": "10086",
+				"time": "2019/1/10 12:51:06",
+				"content": "haha"
+			}, {
+				"id": 3,
+				"username": "10086",
+				"time": "2019/1/10 12:51:18",
+				"content": "haha"
+			}]
+		}]
+	}
+}
+```
+
+
+#### 删除
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=delete&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19
+```
+
+```csharp
+{
+	"code":200,
+	"msg":"删除留言成功"
+}
+```
+
+#### 修改留言
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=change&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19&content=hello
+```
+
+```csharp
+{
+	"code": 200,
+	"msg": "修改留言成功",
+	"data": {
+		"id": 16,
+		"username": "10086",
+		"mark":0,
+		"time": "2019/1/10 9:22:24",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": []
+	}
+}
+```
