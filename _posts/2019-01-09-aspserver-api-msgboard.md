@@ -44,14 +44,14 @@ $root/api/msgboard
 "id":int? //请求id,int?表示该值可为空
 "time":string //时间
 "content":string //请求数据
-"pic":byte[] //图片数据
+"pic":string //图片数据,要求以16进制字符串传输。
 ```
 
 #### 添加留言
 
 > 当method=`add`时跳转到此方法
 
-需要提供的字段:`method`,`credit`,`content`,`pic`[可选]
+需要提供的字段:`method`,`credit`,`content`,`pic(可选)`
 
 样例请求:
 ```
@@ -223,3 +223,82 @@ data:method=update&credit=43c1ce34f16240b0ad92e507065e2ac9&time=2018/07/07%2014:
 
 #### 删除
 
+> 当method=`delete`时跳转到此方法
+
+需要提供的字段:`method`,`credit`,`id`
+
+样例请求
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=delete&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19
+```
+
+> *mark:* 只有*爸爸*才能够删除*儿子*的留言，当然，也可以删除自己的留言。
+
+返回状态码及消息:
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+| 403 | 凭证为空 |
+| 403 | 无效的凭证 |
+| 403 | 该留言不存在 |
+| 403 | 该留言已删除 |
+| 200 | 修改留言成功 |
+
+成功返回消息
+
+```csharp
+{
+	"code":200,
+	"msg":"删除留言成功"
+}
+```
+
+#### 修改留言
+
+> 当method=`change`时跳转到此方法
+
+需要提供的字段:`method`,`credit`,`id`,`content`,`pic(可选)`
+
+样例请求
+
+```
+url:http://39.108.120.239/api/msgboard
+data:method=change&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19&content=hello
+```
+
+> *mark:* 只有**爸爸**才能够删除**儿子**的留言，当然，也可以删除自己的留言。
+
+返回状态码及消息:
+
+| code | msg |
+| :---: | --- |
+| 400 | 无效的请求 |
+| 403 | 凭证为空 |
+| 403 | 无效的凭证 |
+| 403 | 留言内容为空 |
+| 403 | 该留言不存在 |
+| 403 | 权限不够 |
+| 200 | 删除留言成功 |
+
+成功返回消息
+
+```csharp
+{
+	"code": 200,
+	"msg": "修改留言成功",
+	"data": {
+		"id": 16,
+		"username": "10086",
+		"mark":0,
+		"time": "2019/1/10 9:22:24",
+		"istop": 0,
+		"islocked": 0,
+		"content": "helloworld",
+		"pic": null,
+		"comments": []
+	}
+}
+```
