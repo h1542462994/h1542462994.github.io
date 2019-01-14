@@ -316,7 +316,7 @@ url:http://39.108.120.239/api/msgboard
 data:method=deletecomment&credit=43c1ce34f16240b0ad92e507065e2ac9&id=19&subid=5
 ```
 
-> *mark:* 只有*爸爸*才能够删除*儿子*的留言，当然，也可以删除自己的留言。
+> *mark:* 只有*爸爸*才能够删除*儿子*的评论，当然，也可以删除自己的评论。
 
 返回状态码及消息:
 
