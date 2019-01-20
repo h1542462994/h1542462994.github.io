@@ -33,6 +33,8 @@ alter table userinfo drop column portrait;
 alter table msgboard add column updatetime text;
 
 alter table msgboard add column mark int not null;
+
+insert into userinfo set (username,permission_msgboard) values ('10088',2);
 ```
 
 ### 数据库
@@ -171,6 +173,8 @@ create table usercredit(
     "primarykey":"id"
 }
 ```
+
+
 
 #### create table
 
