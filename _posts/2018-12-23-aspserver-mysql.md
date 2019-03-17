@@ -34,7 +34,7 @@ alter table msgboard add column updatetime text;
 
 alter table msgboard add column mark int not null;
 
-insert into userinfo set (username,permission_msgboard,jhpid,pwbind_jh,state_jh,pwbind_lib,state_lib,pwbind_card,state_card,pwbind_ycedu,state_ycedu,pwbind_zfedu,state_zfedu,portrait,email,phone,linkedcourse) values ('10088',2,'','',0,'',0,'',0,'',0,'',0,'','','','');
+insert into userinfo (username,permission_msgboard,jhpid,pwbind_jh,state_jh,pwbind_lib,state_lib,pwbind_card,state_card,pwbind_ycedu,state_ycedu,pwbind_zfedu,state_zfedu,portrait,email,phone,linkedcourse) values ('10088',2,'','',0,'',0,'',0,'',0,'',0,'','','','');
 ```
 
 ### 数据库

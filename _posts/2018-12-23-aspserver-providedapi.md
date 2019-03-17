@@ -23,7 +23,9 @@ description: ""
 
 ------
 
-### 精弘用户中心
+### 1.精弘用户中心
+
+> 该接口使用`get`来请求。
 
 #### 地址
 
@@ -33,7 +35,7 @@ description: ""
 }
 ```
 
-##### 登录**GET**
+#### 登录
 
 ```json
 {
@@ -76,9 +78,11 @@ description: ""
 }
 ```
 
-### 微信端微精弘后台
+### 2.微信端微精弘后台
 
-##### 登录**GET**
+#### 登录
+
+> 该接口使用`get`来请求。
 
 ```json
 {
@@ -155,17 +159,19 @@ https://server.wejh.imcr.me/api/time
 }
 ```
 
-### 正方教务系统
+### 3.正方教务系统
 
-#### 查询成绩**GET**
+> 该接口使用`get`来请求。
 
-##### 地址
+### 查询课表
+
+#### 地址
 
 http://api.jh.zjut.edu.cn/student/classZf.php
 
 #### 入参
 
-```json
+```csharp
 {
     "username":"$username", //学号
     "password":"$password", //密码
@@ -176,14 +182,14 @@ http://api.jh.zjut.edu.cn/student/classZf.php
 
 失败
 
-```json
+```csharp
 {
 	"status": "error",
 	"msg": "参数错误"
 }
 ```
 
-```json
+```csharp
 {
 	"status": "error",
 	"msg": "用户名或密码错误"
@@ -192,7 +198,7 @@ http://api.jh.zjut.edu.cn/student/classZf.php
 
 成功
 
-```json
+```csharp
 {
 	"status": "success",
 	"msg": [{
@@ -239,5 +245,123 @@ http://api.jh.zjut.edu.cn/student/classZf.php
 		"classscore": 2,//学分
 		"classhuor": 32//学时 *谁把hour拼错了?
     }]
+}
+```
+
+### 查询成绩
+
+#### 地址
+
+http://api.jh.zjut.edu.cn/student/scoresZf.php
+
+#### 参数
+
+```csharp
+username=201312341234 //[学号]
+password=xxxxx //[密码]
+year=2017 //[学年]
+term=3 //[学期, 3为上学期，12为下学期, 16为短学期]
+```
+
+#### 结果
+
+成功
+
+```csharp
+{
+    "status": "success",
+    "msg": [
+        {
+            "bh_id": "081201452007", 
+            "bj": "中文1403", //班级
+            "cj": "92", //成绩
+            "cjsfzf": "否",
+            "jg_id": "08",
+            "jgmc": "人文学院",
+            "jgpxzd": "1",
+            "jsxm": "方爱武", //教师姓名
+            "jxb_id": "158685",
+            "jxbmc": "158685",
+            "kcbj": "主修",
+            "kch": "G108136",
+            "kch_id": "22342",
+            "kcmc": "台港澳暨海外华文文学", //课程名称
+            "kkbmmc": "人文学院",
+            "ksxz": "正常考试",
+            "listnav": "false",
+            "localeKey": "zh_CN",
+            "njdm_id": "2014",
+            "njmc": "2014",
+            "pageable": true,
+            "rangeable": true,
+            "row_id": "1",
+            "sfxwkc": "否",
+            "totalResult": "6",
+            "xb": "女",
+            "xbm": "2",
+            "xf": "2", //学分
+            "xh": "201400000123",
+            "xh_id": "927126",
+            "xm": "姓名",
+            "xnm": "2016",
+            "xnmmc": "2016-2017",
+            "xqm": "12",
+            "xqmmc": "2",
+            "zyh_id": "520",
+            "zymc": "中国语言文学类",
+            "term": "2016/2017(2)",
+            "name": "台港澳暨海外华文文学",
+            "classprop": "主修",
+            "classscore": "92",
+            "classhuor": "92",
+            "classcredit": 32
+        },
+        {
+            "bh_id": "081201452007",
+            "bj": "中文1403",
+            "cj": "92",
+            "cjsfzf": "否",
+            "jg_id": "08",
+            "jgmc": "人文学院",
+            "jgpxzd": "1",
+            "jsxm": "褚蓓娟",
+            "jxb_id": "158624",
+            "jxbmc": "158624",
+            "kcbj": "主修",
+            "kch": "G108142",
+            "kch_id": "16027",
+            "kcmc": "外国文学Ⅱ",
+            "kkbmmc": "人文学院",
+            "ksxz": "正常考试",
+            "listnav": "false",
+            "localeKey": "zh_CN",
+            "njdm_id": "2014",
+            "njmc": "2014",
+            "pageable": true,
+            "rangeable": true,
+            "row_id": "2",
+            "sfxwkc": "否",
+            "totalResult": "6",
+            "xb": "女",
+            "xbm": "2",
+            "xf": "2.5",
+            "xh": "201400000123",
+            "xh_id": "927126",
+            "xm": "姓名",
+            "xnm": "2016",
+            "xnmmc": "2016-2017",
+            "xqm": "12",
+            "xqmmc": "2",
+            "zyh_id": "520",
+            "zymc": "中国语言文学类",
+            "term": "2016/2017(2)",
+            "name": "外国文学Ⅱ",
+            "classprop": "主修",
+            "classscore": "92",
+            "classhuor": "92",
+            "classcredit": 40
+        },
+        // ...
+    ]
 }
 ```
